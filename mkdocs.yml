@@ -1,0 +1,16 @@
+site_name: 面试整理
+site_description: 整理和面试有关的资料
+site_author: buffalo
+
+# 主题
+theme:
+  name: material
+
+# 插件
+plugins:
+  - search
+
+# 导航设置
+nav:
+  - Python:
+    - 基础: python/basic.md
