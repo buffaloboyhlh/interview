@@ -460,3 +460,200 @@ print(s)  # 输出：Hello, 世界
 str（字符串）：主要用于处理文本数据，如文件内容、用户输入、显示在界面上的文字等。
 
 bytes（字节）：主要用于处理二进制数据，如网络通信、文件的读写、图片或音频文件的处理等。
+
+## urllib模块
+### urllib.request模块
+urllib.request 模块用于打开和读取URLs。它支持HTTP、HTTPS、FTP等协议，可以发送简单的HTTP请求并接收响应。
+#### urlopen()
+打开指定的URL，并返回一个类文件对象，类似于open()函数的作用。可以通过它读取响应的内容。
+```
+from urllib import request
+
+response = request.urlopen('http://www.example.com')
+html = response.read()
+print(html.decode('utf-8'))  # 输出网页的HTML内容
+```
+
+#### request对象
+可以创建一个 Request 对象，包含更详细的HTTP请求信息（如方法、headers、data等）。
+```
+from urllib import request
+
+url = 'http://www.example.com'
+req = request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+response = request.urlopen(req)
+print(response.read().decode('utf-8'))
+```
+
+### urlretrieve()
+用于直接下载文件并保存到本地。
+```
+from urllib import request
+
+url = 'http://www.example.com/somefile.zip'
+request.urlretrieve(url, 'localfile.zip')
+```
+
+### build_opener() 和 install_opener()
+自定义请求处理器，设置代理、cookie等。
+
+```
+from urllib import request
+
+proxy_handler = request.ProxyHandler({'http': 'http://www.example.com:3128/'})
+opener = request.build_opener(proxy_handler)
+request.install_opener(opener)
+response = request.urlopen('http://www.example.com')
+print(response.read().decode('utf-8'))
+```
+### HTTPError 和 URLError
+处理HTTP请求时可能出现的错误。
+```
+from urllib import request, error
+
+try:
+    response = request.urlopen('http://www.example.com/404')
+except error.HTTPError as e:
+    print('HTTPError:', e.code)
+except error.URLError as e:
+    print('URLError:', e.reason)
+else:
+    print('Success:', response.read().decode('utf-8'))
+```
+
+## urllib.parse 模块
+urllib.parse 模块用于解析URL，并对URL进行拆分、组合、编码、解码等操作。
+### urlparse()
+将URL拆分成组件，如协议、域名、路径、参数等。
+```
+from urllib.parse import urlparse
+
+url = 'http://www.example.com/index.html;param?arg=val#anchor'
+result = urlparse(url)
+print(result)
+# 输出：ParseResult(scheme='http', netloc='www.example.com', path='/index.html', params='param', query='arg=val', fragment='anchor')
+```
+
+
+###  urlunparse()
+将URL的各部分重新组合成一个完整的URL。
+```
+from urllib.parse import urlunparse
+
+data = ('http', 'www.example.com', 'index.html', 'param', 'arg=val', 'anchor')
+url = urlunparse(data)
+print(url)  # 输出：http://www.example.com/index.html;param?arg=val#anchor
+```
+
+### urlencode()
+将字典或元组形式的数据编码成URL查询参数的格式。
+```
+from urllib.parse import urlencode
+
+params = {'name': 'value', 'key': 'word'}
+query_string = urlencode(params)
+print(query_string)  # 输出：name=value&key=word
+```
+
+
+### quote() 和 unquote()
+用于URL编码和解码，处理特殊字符。
+
+```
+from urllib.parse import quote, unquote
+
+url = 'http://www.example.com/?key=中国'
+encoded_url = quote(url)
+print(encoded_url)  # 输出：http%3A//www.example.com/%3Fkey%3D%E4%B8%AD%E5%9B%BD
+
+decoded_url = unquote(encoded_url)
+print(decoded_url)  # 输出：http://www.example.com/?key=中国
+```
+
+### urllib.error 模块
+urllib.error 模块包含 URLError 和 HTTPError 异常，主要用于处理 urllib.request 中可能发生的错误。
+#### HTTPError
+继承自 URLError，表示HTTP请求时的错误，如404 Not Found等。包含属性 code、reason 和 headers。
+
+```
+from urllib import request, error
+
+try:
+    response = request.urlopen('http://www.example.com/404')
+except error.HTTPError as e:
+    print('HTTPError:', e.code, e.reason)
+```
+
+#### URLError
+用于捕获所有与URL处理相关的错误，包含 reason 属性。
+```
+from urllib import request, error
+
+try:
+    response = request.urlopen('http://www.nonexistentwebsite.com')
+except error.URLError as e:
+    print('URLError:', e.reason)
+```
+
+### urllib.robotparser 模块
+urllib.robotparser 模块用于解析 robots.txt 文件，判断某个网站的页面是否允许被抓取。
+
+####  RobotFileParser
+解析 robots.txt 文件并检查给定的User-agent是否被允许访问某个URL。
+
+```
+from urllib.robotparser import RobotFileParser
+
+rp = RobotFileParser()
+rp.set_url('http://www.example.com/robots.txt')
+rp.read()
+can_fetch = rp.can_fetch('*', 'http://www.example.com/somepage')
+print('可以抓取:', can_fetch)
+```
+
+## Json模块
+Python 的 json 模块用于在 Python 和 JSON（JavaScript Object Notation）数据格式之间进行转换。JSON 是一种轻量级的数据交换格式，广泛用于客户端和服务器之间的数据传输。Python 的 json 模块提供了简单易用的函数，可以将 Python 数据结构转换为 JSON 格式，以及将 JSON 数据解析为 Python 数据结构。
+
+### json.dumps()
+将 Python 对象转换为 JSON 字符串。
+
+常用参数：
+
+	•	indent: 指定缩进级别，使输出的 JSON 更易读。
+	•	separators: 设置项与项之间的分隔符。
+	•	ensure_ascii: 如果为 True（默认值），所有非 ASCII 字符将被转义；如果为 False，输出原始字符。
+
+```
+import json
+
+data = {'name': 'Alice', 'age': 25, 'city': 'New York'}
+json_string = json.dumps(data, indent=4)
+print(json_string)
+```
+
+###  json.dump()
+功能：将 Python 对象序列化为 JSON 格式，并将其写入文件。
+常用参数：
+    与 json.dumps() 相同，如 indent 和 ensure_ascii。
+
+###  json.loads()
+将 JSON 字符串解析为 Python 对象。
+
+```
+import json
+
+json_string = '{"name": "Charlie", "age": 28, "city": "Chicago"}'
+data = json.loads(json_string)
+print(data)
+```
+
+### json.load()
+从文件中读取 JSON 数据，并将其解析为 Python 对象。
+```
+import json
+
+with open('data.json', 'r') as f:
+    data = json.load(f)
+print(data)
+```
+
