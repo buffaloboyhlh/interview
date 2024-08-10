@@ -657,3 +657,123 @@ with open('data.json', 'r') as f:
 print(data)
 ```
 
+##  functiools 模块
+functools 是 Python 标准库中的一个模块，提供了一些用于高阶函数（即操作或返回其他函数的函数）和可调用对象的工具。这个模块非常有用，特别是在需要进行函数式编程或优化代码时。
+
+###  functools.partial
+partial 函数用于创建一个新的函数，这个新函数是原函数的一个“部分应用”，即你可以预先为原函数的一些参数赋值，从而简化函数调用。
+
+```
+from functools import partial
+
+def multiply(x, y):
+    return x * y
+
+# 创建一个新的函数，它总是将第一个参数设为 2
+double = partial(multiply, 2)
+
+# 现在只需要传递一个参数
+result = double(5)
+print(result)  # 输出: 10
+```
+###  functools.lru_cache
+lru_cache 是一个装饰器，用于缓存函数的返回值，从而加快函数的执行速度，特别是对于需要多次计算的函数。LRU 是 “Least Recently Used” 的缩写，即缓存会自动丢弃最久未使用的结果。
+```
+from functools import lru_cache
+
+@lru_cache(maxsize=32)
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(10))  # 输出: 55
+```
+在这个示例中，fibonacci 函数会缓存最近 32 个计算结果，从而避免重复计算。
+
+###  functools.reduce
+reduce 函数用于对序列中的元素进行累计操作。它从序列的第一个元素开始，依次将前一个累计结果和下一个元素传递给函数，最终将整个序列简化为一个值。
+
+```
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+result = reduce(lambda x, y: x + y, numbers)
+print(result)  # 输出: 15
+```
+
+### functools.wraps
+wraps 是一个装饰器，用于保持原函数的元数据（如文档字符串、函数名等），当你用装饰器包装一个函数时，这个函数的元数据通常会丢失。使用 functools.wraps 可以避免这种情况。
+
+```
+from functools import wraps
+
+def my_decorator(f):
+    @wraps(f)
+    def wrapped(*args, **kwargs):
+        print("Before calling", f.__name__)
+        result = f(*args, **kwargs)
+        print("After calling", f.__name__)
+        return result
+    return wrapped
+
+@my_decorator
+def say_hello():
+    """This function says hello."""
+    print("Hello!")
+
+say_hello()
+
+# 查看函数的元数据
+print(say_hello.__name__)  # 输出: say_hello
+print(say_hello.__doc__)   # 输出: This function says hello.
+```
+
+### functools.total_ordering
+total_ordering 是一个类装饰器，用于简化实现比较操作符。你只需要定义一个或两个基本比较方法（如 __lt__ 和 __eq__），然后 total_ordering 装饰器会自动为你生成其他的比较方法。
+
+
+```
+from functools import total_ordering
+
+@total_ordering
+class Number:
+    def __init__(self, value):
+        self.value = value
+
+    def __eq__(self, other):
+        return self.value == other.value
+
+    def __lt__(self, other):
+        return self.value < other.value
+
+# 现在 Number 类自动支持 <, <=, >, >= 比较
+n1 = Number(5)
+n2 = Number(10)
+
+print(n1 < n2)  # 输出: True
+print(n1 <= n2)  # 输出: True
+print(n1 > n2)  # 输出: False
+```
+
+### functools.singledispatch
+singledispatch 是一个通用函数装饰器，用于实现基于参数类型的单分派（Single Dispatch）函数。通过 @singledispatch，你可以根据第一个参数的类型来选择调用不同的函数实现。
+
+```
+from functools import singledispatch
+
+@singledispatch
+def process(data):
+    raise NotImplementedError("Cannot process this type")
+
+@process.register(int)
+def _(data):
+    print(f"Processing an integer: {data}")
+
+@process.register(str)
+def _(data):
+    print(f"Processing a string: {data}")
+
+process(10)   # 输出: Processing an integer: 10
+process("hi") # 输出: Processing a string: hi
+```
