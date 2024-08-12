@@ -1821,6 +1821,87 @@ asyncio.run(main())
 
 
 
+## pickle模块
+
+pickle 是 Python 的一个标准库，用于将 Python 对象序列化和反序列化。序列化是将对象转化为字节流的过程，而反序列化则是将字节流恢复为原来的对象。pickle 模块非常强大，可以处理几乎所有的 Python 数据类型，包括自定义对象。
 
 
+### 序列化对象 (pickle.dump)
+
+将 Python 对象序列化并保存到文件。
+
+```
+import pickle
+
+# 创建一个 Python 对象
+data = {'name': 'Alice', 'age': 25, 'scores': [85, 90, 78]}
+
+# 序列化并保存到文件
+with open('data.pkl', 'wb') as f:
+    pickle.dump(data, f)
+```
+	•	data.pkl：保存的文件名。
+
+	•	'wb'：以二进制写模式打开文件。
+
+
+### 反序列化对象 (pickle.load)
+从文件中加载序列化的对象并反序列化。
+
+```
+import pickle
+
+# 从文件中加载数据
+with open('data.pkl', 'rb') as f:
+    loaded_data = pickle.load(f)
+
+print(loaded_data)
+```
+
+### 使用 pickle 序列化到内存 (pickle.dumps 和 pickle.loads)
+有时候，您可能不需要将对象保存到文件中，而是需要在内存中进行序列化和反序列化。pickle 提供了 dumps() 和 loads() 函数用于这类操作。
+
+```
+import pickle
+
+# 创建一个 Python 对象
+data = {'name': 'Bob', 'age': 30, 'scores': [88, 92, 80]}
+
+# 序列化到内存
+serialized_data = pickle.dumps(data)
+
+# 反序列化回对象
+loaded_data = pickle.loads(serialized_data)
+
+print(loaded_data)
+```
+
+### 自定义对象的序列化
+pickle 可以序列化自定义类的对象。在序列化时，pickle 保存对象的类定义和实例数据。
+
+```
+import pickle
+
+# 定义一个自定义类
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __repr__(self):
+        return f"Person(name={self.name}, age={self.age})"
+
+# 创建一个对象
+person = Person('Charlie', 35)
+
+# 序列化并保存到文件
+with open('person.pkl', 'wb') as f:
+    pickle.dump(person, f)
+
+# 反序列化
+with open('person.pkl', 'rb') as f:
+    loaded_person = pickle.load(f)
+
+print(loaded_person)
+```
 
