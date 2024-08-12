@@ -1685,5 +1685,142 @@ async def main():
 asyncio.run(main())
 ```
 
+## 网络编程
+### socket模块
+socket 模块是 Python 中进行低级别网络编程的核心模块，提供了创建网络连接、发送和接收数据的功能。socket 支持TCP（传输控制协议）和UDP（用户数据报协议）。
+
+#### TCP服务器和客户端
+TCP（传输控制协议） 是面向连接的协议，提供可靠的数据传输。
+
+##### TCP服务器
+```
+import socket
+
+# 创建TCP/IP套接字
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# 绑定套接字到地址（主机，端口）
+server_socket.bind(('localhost', 65432))
+
+# 监听传入的连接
+server_socket.listen()
+
+print('服务器启动，等待连接...')
+
+# 接受连接
+conn, addr = server_socket.accept()
+with conn:
+    print('连接到：', addr)
+    while True:
+        data = conn.recv(1024)
+        if not data:
+            break
+        conn.sendall(data)  # 回送数据
+```
+
+##### TCP客户端
+```
+import socket
+
+# 创建TCP/IP套接字
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# 连接到服务器
+client_socket.connect(('localhost', 65432))
+
+# 发送数据
+client_socket.sendall(b'Hello, server!')
+
+# 接收服务器响应
+data = client_socket.recv(1024)
+print('接收到:', repr(data))
+
+# 关闭连接
+client_socket.close()
+```
+
+##### UDP 服务器
+UDP（用户数据报协议） 是无连接的协议，提供不可靠的数据传输。
+
+```
+import socket
+
+# 创建UDP套接字
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# 绑定到地址
+server_socket.bind(('localhost', 65432))
+
+print('UDP 服务器启动，等待消息...')
+
+while True:
+    data, addr = server_socket.recvfrom(1024)
+    print('接收到来自:', addr, '的消息:', data)
+    server_socket.sendto(data, addr)  # 回送数据
+```
+
+##### UDP客户端
+
+```
+import socket
+
+# 创建UDP套接字
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# 发送数据
+client_socket.sendto(b'Hello, server!', ('localhost', 65432))
+
+# 接收服务器响应
+data, server = client_socket.recvfrom(1024)
+print('接收到:', repr(data))
+
+# 关闭套接字
+client_socket.close()
+```
+
+### 高级网络编程：requests模块
+requests 是 Python 中最流行的 HTTP 库，用于发送 HTTP 请求，处理网页表单、文件上传等任务。
+
+#### 发送GET请求
+```
+import requests
+
+response = requests.get('https://api.github.com')
+print(response.status_code)
+print(response.text)
+```
+#### 发送 POST 请求
+```
+import requests
+
+payload = {'key1': 'value1', 'key2': 'value2'}
+response = requests.post('https://httpbin.org/post', data=payload)
+print(response.status_code)
+print(response.json())
+```
+
+### 异步网络编程：asyncio和aiohttp
+asyncio 是 Python 标准库中的异步编程框架，aiohttp 是基于 asyncio 的异步 HTTP 客户端和服务器库。
+
+#### 异步HTTP请求
+```
+import aiohttp
+import asyncio
+
+async def fetch(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return await response.text()
+
+async def main():
+    html = await fetch('https://www.example.com')
+    print(html)
+
+asyncio.run(main())
+```
+
+
+
+
 
 
