@@ -5,13 +5,89 @@ site_author: buffalo
 # 主题
 theme:
   name: material
+  language: zh    #语言，可设置多套切换
+  icon:
+    logo: material/library  #默认logo图标
+  features:
+    - navigation.tracking  #锚点跟踪
+    - navigation.tabs  #导航选项卡
+    - content.code.copy # 复制代码按钮
+    - content.code.annotate  
+    - search.highlight # 搜索高亮
+    - search.suggest # 搜索建议
+    - navigation.instant.prefetch # 预加载
+    - navigation.instant.progress # 进度条
+    - navigation.expand # 默认展开导航栏
+    - navigation.instant
+    - navigation.tabs.sticky # 固定（浏览时不收起）标签
+    - navigation.footer # 底部导航栏
+    - toc.follow # 目录跟踪-页面右侧的小目录
+  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义    
+    primary: teal
+    accent: deep orange
 
 # 插件
 plugins:
   - search
+  - tags
+
+
+# 扩展
+markdown_extensions: # markdown extensions
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
 
 # 导航设置
 nav:
   - Python:
     - 基础: python/basic.md
     - numpy: python/numpy.md
+
+  - mysql:
+    - 基础: mysql/basic.md
