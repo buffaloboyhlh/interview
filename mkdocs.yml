@@ -87,10 +87,50 @@ markdown_extensions: # markdown extensions
 nav:
   - Python:
     - 基础: python/basic.md
+    - 进阶: python/advance.md
     - numpy: python/numpy.md
+    - pandas: python/pandas.md
+    - matpliot: python/matpliot.md
+    - 算法:  python/algorithm.md
+    - 面试: python/interview.md
 
-  - mysql:
-    - 基础: mysql/basic.md
+  - web:
+    - django:
+        - 基础: webs/django/basic.md
+        - restful: webs/django/restful.md
+        - 面试: webs/django/interview.md
+    - flask:
+        - 基础: webs/flask/basic.md
+    - fastapi:
+        - 基础: webs/fastapi/basic.md
   
-  - docker:
-    - 基础: docker/basic.md
+  - 数据库:
+    - mysql:
+      - 基础: database/mysql/basic.md
+    - redis:
+      - 基础: database/redis/basic.md
+    - mongodb:
+      - 基础:  database/mongodb/basic.md
+
+  - 中间件:
+      - kafka:
+          - 基础: middlewares/kafka/basic.md
+      - rabbitmq:
+          - 基础: middlewares/rabbitmq/basic.md
+  
+  - 服务器:
+    - nginx:
+      - 基础: server/nginx/basic.md
+
+  - 云原生:
+    - docker:
+      - 基础: cloud/docker/basic.md
+    - kubernetes:
+      - 基础: cloud/kubernetes/basic.md
+  
+
+
+ 
+  
+
+  
