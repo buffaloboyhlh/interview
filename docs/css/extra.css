@@ -1,0 +1,78 @@
+/* 一级标题颜色 */
+h1 {
+    color: #3F51B5; /* Indigo */
+}
+
+/* 二级标题颜色 */
+h2 {
+    color: #FF5722; /* Deep Orange */
+}
+
+/* 三级标题颜色 */
+h3 {
+    color: #00BCD4; /* Cyan */
+}
+
+/* 四级标题颜色 */
+h4 {
+    color: #CDDC39; /* Lime */
+}
+
+/* 五级标题颜色 */
+h5 {
+    color: #E91E63; /* Pink */
+}
+
+/* 六级标题颜色 */
+h6 {
+    color: #009688; /* Teal */
+}
+
+/* 一级标题带渐变效果 */
+h1 {
+    background: linear-gradient(to right, #3F51B5, #2196F3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 二级标题加阴影 */
+h2 {
+    color: #FF5722;
+    text-shadow: 1px 1px 2px #888;
+}
+
+.md-typeset h2,
+.md-typeset h2 + p,
+.md-typeset h2 + ul,
+.md-typeset h2 + ol {
+    margin-left: 15px;
+}
+
+.md-typeset h3,
+.md-typeset h3 + p,
+.md-typeset h3 + ul,
+.md-typeset h3 + ol {
+    margin-left: 35px;
+}
+
+.md-typeset h4,
+.md-typeset h4 + p,
+.md-typeset h4 + ul,
+.md-typeset h4 + ol {
+    margin-left: 55px;
+}
+
+
+.md-typeset h5,
+.md-typeset h5 + p,
+.md-typeset h5 + ul,
+.md-typeset h5 + ol {
+    margin-left: 75px;
+}
+
+.md-typeset h6,
+.md-typeset h6 + p,
+.md-typeset h6 + ul,
+.md-typeset h6 + ol {
+    margin-left: 95px;
+}

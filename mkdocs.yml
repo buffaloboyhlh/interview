@@ -82,9 +82,12 @@ markdown_extensions: # markdown extensions
       custom_checkbox: true
   - pymdownx.tilde
 
+extra_css:
+  - css/extra.css
 
 # 导航设置
 nav:
+#  - Home: index.md
   - Python:
     - 基础: python/basic.md
     - 进阶: python/advance.md
