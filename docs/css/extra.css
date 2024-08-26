@@ -41,38 +41,60 @@ h2 {
     text-shadow: 1px 1px 2px #888;
 }
 
+/* 默认加粗文本颜色 */
+.md-typeset strong {
+    color: #1976D2; /* Primary Blue */
+}
+
+/* 自定义其他加粗文本颜色 */
+.md-typeset strong.success {
+    color: #388E3C; /* Success Green */
+}
+
+.md-typeset strong.warning {
+    color: #FFC107; /* Warning Amber */
+}
+
+.md-typeset strong.error {
+    color: #D32F2F; /* Error Red */
+}
+
+.md-typeset strong.accent {
+    color: #FF9800; /* Accent Orange */
+}
+
+/* 一级标题及其后所有内容缩进 */
+.md-typeset h1,
+.md-typeset h1 ~ * {
+    margin-left: 0px;
+}
+
+/* 二级标题及其后所有内容缩进 */
 .md-typeset h2,
-.md-typeset h2 + p,
-.md-typeset h2 + ul,
-.md-typeset h2 + ol {
+.md-typeset h2 ~ * {
     margin-left: 15px;
 }
 
+/* 三级标题及其后所有内容缩进 */
 .md-typeset h3,
-.md-typeset h3 + p,
-.md-typeset h3 + ul,
-.md-typeset h3 + ol {
-    margin-left: 35px;
+.md-typeset h3 ~ * {
+    margin-left: 30px;
 }
 
+/* 四级标题及其后所有内容缩进 */
 .md-typeset h4,
-.md-typeset h4 + p,
-.md-typeset h4 + ul,
-.md-typeset h4 + ol {
-    margin-left: 55px;
+.md-typeset h4 ~ * {
+    margin-left: 45px;
 }
-
 
 .md-typeset h5,
-.md-typeset h5 + p,
-.md-typeset h5 + ul,
-.md-typeset h5 + ol {
-    margin-left: 75px;
+.md-typeset h5 ~ * {
+    margin-left: 60px;
 }
 
 .md-typeset h6,
-.md-typeset h6 + p,
-.md-typeset h6 + ul,
-.md-typeset h6 + ol {
-    margin-left: 95px;
+.md-typeset h6 ~ * {
+    margin-left: 75px;
 }
+
+/* 可以根据需要继续添加更多标题级别的缩进 */

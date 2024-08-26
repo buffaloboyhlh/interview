@@ -110,26 +110,44 @@ nav:
   - 数据库:
     - mysql:
       - 基础: database/mysql/basic.md
+      - 面试: database/mysql/interview.md
+      - interview: database/mysql/面试.md
     - redis:
       - 基础: database/redis/basic.md
+      - 面试: database/redis/interview.md
     - mongodb:
       - 基础:  database/mongodb/basic.md
+      - 面试: database/mongodb/interview.md
+    - elastic:
+      - 基础: database/elastic/basic.md
+      - 面试: database/elastic/interview.md
 
   - 中间件:
       - kafka:
           - 基础: middlewares/kafka/basic.md
+          - 面试: middlewares/kafka/interview.md
       - rabbitmq:
           - 基础: middlewares/rabbitmq/basic.md
+          - 面试: middlewares/rabbitmq/interview.md
   
   - 服务器:
     - nginx:
       - 基础: server/nginx/basic.md
+      - 面试: server/nginx/interview.md
 
   - 云原生:
     - docker:
       - 基础: cloud/docker/basic.md
+      - 面试: cloud/docker/interview.md
     - kubernetes:
       - 基础: cloud/kubernetes/basic.md
+      - 监控和日志: cloud/kubernetes/monitor.md
+      - crictl: cloud/kubernetes/crictl.md
+      - helm: cloud/kubernetes/helm.md
+      - 面试: cloud/kubernetes/interview.md
+
+  - 分布式: https://juejin.cn/column/7098219195371880484
+
   
 
 
