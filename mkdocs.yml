@@ -89,13 +89,44 @@ extra_css:
 nav:
 #  - Home: index.md
   - Python:
-    - 基础: python/basic.md
-    - 进阶: python/advance.md
-    - numpy: python/numpy.md
-    - pandas: python/pandas.md
-    - matpliot: python/matpliot.md
-    - 算法:  python/algorithm.md
+    - python基础: python/basic.md
+    - python进阶: python/advance.md
+    - 数据结构和算法: python/datastruct.md
     - 面试: python/interview.md
+    - 数据处理与分析:
+        - numpy: python/numpy.md
+        - pandas: python/pandas.md
+        - matpliot: python/matpliot.md
+        - Seaborn: python/Seaborn.md
+    - 标准库:
+        - os: python/os.md
+        - sys: python/sys.md
+        - math: python/math.md
+        - datetime: python/datetime.md
+        - re: python/re.md
+        - shutil: python/shutil.md
+        - requests: python/requests.md
+        - pathlib: python/pathlib.md
+        - pytest: python/pytest.md
+        - mock: python/mock.md
+        - logging: python/logging.md
+        - random: python/random.md
+        - time: python/time.md
+        - urllib: python/urllib.md
+        - json: python/json.md
+        - functools: python/functools.md
+    - 数据库:
+        - sqlalchemy: python/sqlalchemy.md
+        - pymysql: python/pymysql.md
+        - redis: python/redis.md
+    - 爬虫:
+        - beautifulsoup: python/beautifulsoup.md
+        - scrapy: python/scrapy.md
+        - selenium: python/selenium.md
+    - 科学计算与机器学习:
+        - scipy: python/scipy.md
+        - scikit-learn: python/scikit-learn.md
+        - pytorch: python/pytorch.md
 
   - web:
     - django:

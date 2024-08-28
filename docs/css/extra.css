@@ -1,42 +1,42 @@
 /* 一级标题颜色 */
-h1 {
+.md-typeset h1 {
     color: #3F51B5; /* Indigo */
 }
 
 /* 二级标题颜色 */
-h2 {
+.md-typeset h2 {
     color: #FF5722; /* Deep Orange */
 }
 
 /* 三级标题颜色 */
-h3 {
+.md-typeset h3 {
     color: #00BCD4; /* Cyan */
 }
 
 /* 四级标题颜色 */
-h4 {
+.md-typeset h4 {
     color: #CDDC39; /* Lime */
 }
 
 /* 五级标题颜色 */
-h5 {
+.md-typeset h5 {
     color: #E91E63; /* Pink */
 }
 
 /* 六级标题颜色 */
-h6 {
+.md-typeset h6 {
     color: #009688; /* Teal */
 }
 
 /* 一级标题带渐变效果 */
-h1 {
+.md-typeset h1 {
     background: linear-gradient(to right, #3F51B5, #2196F3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* 二级标题加阴影 */
-h2 {
+.md-typeset h2 {
     color: #FF5722;
     text-shadow: 1px 1px 2px #888;
 }
@@ -63,38 +63,11 @@ h2 {
     color: #FF9800; /* Accent Orange */
 }
 
-/* 一级标题及其后所有内容缩进 */
-.md-typeset h1,
-.md-typeset h1 ~ * {
-    margin-left: 0px;
+/* 让所有标题及其后的内容缩进 */
+h1, h2, h3, h4, h5, h6 {
+    margin-left: 20px;
 }
 
-/* 二级标题及其后所有内容缩进 */
-.md-typeset h2,
-.md-typeset h2 ~ * {
-    margin-left: 15px;
+h1 + * , h2 + *, h3 + *, h4 + *, h5 + *, h6 + * {
+    margin-left: 20px;
 }
-
-/* 三级标题及其后所有内容缩进 */
-.md-typeset h3,
-.md-typeset h3 ~ * {
-    margin-left: 30px;
-}
-
-/* 四级标题及其后所有内容缩进 */
-.md-typeset h4,
-.md-typeset h4 ~ * {
-    margin-left: 45px;
-}
-
-.md-typeset h5,
-.md-typeset h5 ~ * {
-    margin-left: 60px;
-}
-
-.md-typeset h6,
-.md-typeset h6 ~ * {
-    margin-left: 75px;
-}
-
-/* 可以根据需要继续添加更多标题级别的缩进 */
