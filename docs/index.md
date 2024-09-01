@@ -13,7 +13,9 @@
 [matplotlib](http://127.0.0.1:8000/python/matplotlib/)
 
 ### 面试篇
-[Python面试题](http://127.0.0.1:8000/python/interview/)
+[Python面试题](http://127.0.0.1:8000/python/interview/python/)
+[numpy面试题](http://127.0.0.1:8000/python/interview/numpy/)
+[pandas 面试题](http://127.0.0.1:8000/python/interview/pandas/)
 
 ## 云原生
 ### Docker

@@ -92,7 +92,11 @@ nav:
     - python基础: python/basic.md
     - python进阶: python/advance.md
     - 数据结构和算法: python/datastruct.md
-    - 面试: python/interview.md
+    - 面试:
+        - python面试: python/interview/python.md
+        - numpy面试: python/interview/numpy.md
+        - pandas面试: python/interview/pandas.md
+        - 数据处理和分析面试: python/interview/analysis.md
     - 数据处理与分析:
         - numpy: python/numpy.md
         - pandas: python/pandas.md
@@ -115,6 +119,8 @@ nav:
         - urllib: python/urllib.md
         - json: python/json.md
         - functools: python/functools.md
+        - asyncio: python/asyncio.md
+        - pickle: python/pickle.md
     - 数据库:
         - sqlalchemy: python/sqlalchemy.md
         - pymysql: python/pymysql.md
@@ -160,6 +166,9 @@ nav:
       - rabbitmq:
           - 基础: middlewares/rabbitmq/basic.md
           - 面试: middlewares/rabbitmq/interview.md
+      - zookeeper:
+          - 基础: middlewares/zookeeper/basic.md
+          - 面试: middlewares/zookeeper/interview.md
   
   - 服务器:
     - nginx:
@@ -177,7 +186,16 @@ nav:
       - helm: cloud/kubernetes/helm.md
       - 面试: cloud/kubernetes/interview.md
 
-  - 分布式: https://juejin.cn/column/7098219195371880484
+  - 分布式:
+      - 教程: https://juejin.cn/column/7098219195371880484
+  - LLM:
+      - 基础教程: LLM/basic.md
+      - 进阶教程: LLM/advance.md
+      - 面试:  LLM/interview.md
+
+  - 计算机基础:
+      - 操作系统: computers/system.md
+      - 计算机网络: computers/network.md
 
   
 
