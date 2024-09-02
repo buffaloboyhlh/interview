@@ -121,6 +121,7 @@ nav:
         - functools: python/functools.md
         - asyncio: python/asyncio.md
         - pickle: python/pickle.md
+        - celery: python/celery.md
     - 数据库:
         - sqlalchemy: python/sqlalchemy.md
         - pymysql: python/pymysql.md
