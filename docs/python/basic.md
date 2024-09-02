@@ -316,8 +316,9 @@ Python 生态系统中有大量第三方库，极大地扩展了 Python 的功�
 - **Pandas**：数据分析和处理的库
 - **Matplotlib**：数据可视化库
 - **Flask/Django**：Web 开发框架
+- **FastAPI**: 异步Web开发框架
 - **Requests**：HTTP 库，简化了网络请求
-- **
+- **Celery**: 分布式任务队列
 
 BeautifulSoup**：HTML/XML 解析库
 
