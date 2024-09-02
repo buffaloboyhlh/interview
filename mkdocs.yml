@@ -91,6 +91,7 @@ nav:
   - Python:
     - python基础: python/basic.md
     - python进阶: python/advance.md
+    - websocket: python/websocket.md
     - 数据结构和算法: python/datastruct.md
     - 面试:
         - python面试: python/interview/python.md
