@@ -203,6 +203,7 @@ nav:
           - 进阶教程: LLM/advance.md
           - 面试:  LLM/interview.md
           - langchain: LLM/langchain.md
+          - transformer: LLM/Transformers.md
 
 
   - 计算机基础:
