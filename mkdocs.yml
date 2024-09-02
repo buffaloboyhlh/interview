@@ -193,14 +193,23 @@ nav:
 
   - 分布式:
       - 教程: https://juejin.cn/column/7098219195371880484
-  - LLM:
-      - 基础教程: LLM/basic.md
-      - 进阶教程: LLM/advance.md
-      - 面试:  LLM/interview.md
+  - 人工智能:
+      - AI:
+          - 概念: LLM/ai-basic.md
+          - 基础: LLM/AI.md
+      - LLM:
+          - 基础教程: LLM/basic.md
+          - 进阶教程: LLM/advance.md
+          - 面试:  LLM/interview.md
+          - langchain: LLM/langchain.md
+
 
   - 计算机基础:
       - 操作系统: computers/system.md
       - 计算机网络: computers/network.md
+
+  - 系统设计:
+      - 面试题: design/basic.md
 
   
 
