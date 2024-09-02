@@ -143,9 +143,11 @@ nav:
         - 基础: webs/flask/basic.md
     - fastapi:
         - 基础: webs/fastapi/basic.md
+        - 面试: webs/fastapi/interview.md
   
   - 数据库:
     - mysql:
+      - sql: database/mysql/sql.md
       - 基础: database/mysql/basic.md
       - 面试: database/mysql/interview.md
       - interview: database/mysql/面试.md
@@ -174,6 +176,8 @@ nav:
     - nginx:
       - 基础: server/nginx/basic.md
       - 面试: server/nginx/interview.md
+    - uvicorn:
+        - 基础: server/uvicorn/basic.md
 
   - 云原生:
     - docker:

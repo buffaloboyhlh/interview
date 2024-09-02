@@ -1251,3 +1251,181 @@ Python 命令行选项提供了多种功能，可以帮助你控制 Python 解�
 ### 总结
 
 通过这些命令行选项，你可以更灵活地控制 Python 解释器的行为，从而适应不同的开发和调试场景。熟悉这些选项可以帮助你更高效地编写、调试和运行 Python 代码。
+
+## python 自定义包
+
+以下是一个关于如何创建并发布 Python 自定义包的详细示例。
+
+### 1. **准备项目结构**
+假设我们创建一个名为 `simplemath` 的 Python 包，提供一些简单的数学运算功能。项目的目录结构如下：
+
+```bash
+simplemath/
+│
+├── simplemath/
+│   ├── __init__.py
+│   ├── addition.py
+│   └── subtraction.py
+│
+├── tests/
+│   ├── __init__.py
+│   └── test_operations.py
+│
+├── LICENSE
+├── README.md
+└── setup.py
+```
+
+### 2. **编写代码**
+在 `simplemath/simplemath/` 目录下，我们分别创建 `addition.py` 和 `subtraction.py`，用于实现加法和减法功能。
+
+#### `addition.py`
+```python
+def add(a, b):
+    return a + b
+```
+
+#### `subtraction.py`
+```python
+def subtract(a, b):
+    return a - b
+```
+
+在 `__init__.py` 中，导入这些模块，以便包的用户可以直接使用它们：
+
+#### `__init__.py`
+```python
+from .addition import add
+from .subtraction import subtract
+```
+
+### 3. **编写测试**
+在 `tests/` 目录下，编写测试代码，确保我们的功能正常运行。
+
+#### `test_operations.py`
+```python
+import unittest
+from simplemath import add, subtract
+
+class TestSimpleMath(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(3, 4), 7)
+
+    def test_subtract(self):
+        self.assertEqual(subtract(10, 5), 5)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+### 4. **编写 `setup.py` 文件**
+在项目根目录下创建 `setup.py` 文件，配置包的元数据。
+
+#### `setup.py`
+```python
+from setuptools import setup, find_packages
+
+setup(
+    name="simplemath",
+    version="0.1.0",
+    author="Your Name",
+    author_email="your.email@example.com",
+    description="A simple math operations package",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/yourusername/simplemath",
+    packages=find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+)
+```
+
+### 5. **编写 `README.md` 文件**
+在 `README.md` 文件中介绍包的功能和用法。
+
+#### `README.md`
+```markdown
+# SimpleMath
+
+SimpleMath is a Python package that provides basic math operations like addition and subtraction.
+
+## Installation
+
+You can install this package via pip:
+
+```bash
+pip install simplemath
+```
+
+## Usage
+
+```python
+from simplemath import add, subtract
+
+print(add(3, 4))        # Output: 7
+print(subtract(10, 5))  # Output: 5
+```
+```
+
+### 6. **编写 LICENSE 文件**
+选择一个开源许可证，比如 MIT License，并将其内容放入 `LICENSE` 文件中。
+
+#### `LICENSE`
+```text
+MIT License
+
+Copyright (c) 2024 Your Name
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+...
+```
+
+### 7. **打包和发布**
+在打包之前，确保 `setuptools` 和 `wheel` 已安装：
+
+```bash
+pip install setuptools wheel
+```
+
+在项目根目录下运行以下命令打包：
+
+```bash
+python setup.py sdist bdist_wheel
+```
+
+这将在 `dist/` 目录中生成 `.tar.gz` 和 `.whl` 文件。
+
+### 8. **上传到 PyPI**
+使用 `twine` 上传包到 PyPI：
+
+```bash
+pip install twine
+twine upload dist/*
+```
+
+上传成功后，其他用户就可以通过 `pip install simplemath` 来安装并使用你的包了。
+
+### 9. **验证安装**
+可以在虚拟环境中验证包的安装：
+
+```bash
+pip install simplemath
+```
+
+然后测试包的功能：
+
+```python
+from simplemath import add, subtract
+
+print(add(3, 4))        # Output: 7
+print(subtract(10, 5))  # Output: 5
+```
+
+### 10. **更新包**
+如果需要更新包，修改代码后更新 `setup.py` 中的版本号，然后重新打包并上传即可。
+
+通过这个例子，你应该能够理解如何创建、打包并发布一个 Python 自定义包。
