@@ -22,9 +22,12 @@ theme:
     - navigation.tabs.sticky # 固定（浏览时不收起）标签
     - navigation.footer # 底部导航栏
     - toc.follow # 目录跟踪-页面右侧的小目录
-  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义    
+  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
     primary: teal
     accent: deep orange
+    toggle:
+      icon: material/brightness-6
+      name: Switch between dark and light mode
 
 # 插件
 plugins:
@@ -123,6 +126,7 @@ nav:
         - asyncio: python/asyncio.md
         - pickle: python/pickle.md
         - celery: python/celery.md
+        - queue: python/queue.md
     - 数据库:
         - sqlalchemy: python/sqlalchemy.md
         - pymysql: python/pymysql.md
