@@ -22,13 +22,25 @@ theme:
     - navigation.tabs.sticky # 固定（浏览时不收起）标签
     - navigation.footer # 底部导航栏
     - toc.follow # 目录跟踪-页面右侧的小目录
-  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
-    primary: teal
-    accent: deep orange
-    toggle:
-      icon: material/brightness-6
-      name: Switch between dark and light mode
-
+#  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
+#    primary: teal
+#    accent: deep orange
+#    toggle:
+#      icon: material/brightness-6
+#      name: Switch between dark and light mode
+  palette:
+      - scheme: default
+        primary: teal
+        accent: deep orange
+        toggle:
+          icon: material/lightbulb
+          name: Switch to dark mode
+      - scheme: slate
+        primary: teal
+        accent: deep orange
+        toggle:
+          icon: material/lightbulb-outline
+          name: Switch to light mode
 # 插件
 plugins:
   - search
@@ -94,7 +106,6 @@ nav:
   - Python:
     - python基础: python/basic.md
     - python进阶: python/advance.md
-    - websocket: python/websocket.md
     - 数据结构和算法: python/datastruct.md
     - 面试:
         - python面试: python/interview/python.md
@@ -147,9 +158,14 @@ nav:
         - 面试: webs/django/interview.md
     - flask:
         - 基础: webs/flask/basic.md
+        - 进阶: webs/flask/advance.md
+        - 面试: webs/flask/interview.md
+        - 常见问题: webs/flask/questions.md
     - fastapi:
         - 基础: webs/fastapi/basic.md
         - 面试: webs/fastapi/interview.md
+    - wsgi:
+        - 基础: webs/WSGI/basic.md
   
   - 数据库:
     - mysql:
@@ -213,6 +229,8 @@ nav:
   - 计算机基础:
       - 操作系统: computers/system.md
       - 计算机网络: computers/network.md
+      - http: computers/http.md
+      - websockets: computers/websocket.md
 
   - 系统设计:
       - 面试题: design/basic.md
