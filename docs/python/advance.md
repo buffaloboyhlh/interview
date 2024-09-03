@@ -619,43 +619,165 @@ thread.join()
 
 #### 3. 线程间通信
 
-在多线程编程中，线程之间可能需要通信以协调任务。`queue.Queue` 是一种线程安全的队列，可以在线程之间传递数据。
+在 Python 中，线程间通信通常通过共享数据结构或使用同步原语（如锁、事件、条件变量等）来实现。`queue` 模块是其中一种常用的方法，它提供了线程安全的队列，用于在生产者和消费者线程之间传递数据。除此之外，还可以使用其他方式进行线程间的通信。
 
-##### 3.1 使用 `Queue` 实现线程通信
+##### 1. 使用 `queue` 模块进行线程间通信
+
+`queue.Queue` 是一个线程安全的队列，可以让一个线程将数据放入队列，另一个线程从队列中取出数据。
 
 ```python
 import threading
 import queue
+import time
 
-def producer(q):
+# 创建一个队列
+q = queue.Queue()
+
+# 生产者线程
+def producer():
     for i in range(5):
-        q.put(i)
-        print(f"Produced {i}")
+        item = f'item-{i}'
+        q.put(item)
+        print(f'Produced {item}')
+        time.sleep(1)
 
-def consumer(q):
+# 消费者线程
+def consumer():
     while True:
         item = q.get()
         if item is None:
             break
-        print(f"Consumed {item}")
+        print(f'Consumed {item}')
         q.task_done()
 
-q = queue.Queue()
+# 启动生产者和消费者线程
+t1 = threading.Thread(target=producer)
+t2 = threading.Thread(target=consumer)
 
-# 创建生产者线程
-producer_thread = threading.Thread(target=producer, args=(q,))
-# 创建消费者线程
-consumer_thread = threading.Thread(target=consumer, args=(q,))
+t1.start()
+t2.start()
 
-producer_thread.start()
-consumer_thread.start()
-
-producer_thread.join()
-q.put(None)  # 用于通知消费者退出
-consumer_thread.join()
+t1.join()
+q.put(None)  # 向队列发送None信号，表示消费结束
+t2.join()
 ```
 
-在这个例子中，`producer` 线程将数据放入队列，而 `consumer` 线程从队列中获取数据并处理。队列确保了线程之间的数据传递是安全的。
+##### 2. 使用 `threading.Event` 进行线程间通信
+
+`threading.Event` 是一种简单的同步原语，用于在线程之间发送信号。
+
+```python
+import threading
+import time
+
+# 创建一个事件对象
+event = threading.Event()
+
+def worker():
+    print("Worker waiting for event to start...")
+    event.wait()  # 等待事件被设置
+    print("Worker started...")
+
+def controller():
+    print("Controller is starting the worker...")
+    time.sleep(3)
+    event.set()  # 触发事件
+
+# 启动工作线程和控制器线程
+t1 = threading.Thread(target=worker)
+t2 = threading.Thread(target=controller)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+```
+
+##### 3. 使用 `threading.Condition` 进行复杂同步
+
+`threading.Condition` 可以在特定条件下唤醒等待的线程，它通常与锁一起使用。
+
+```python
+import threading
+import time
+
+condition = threading.Condition()
+
+items = []
+
+# 生产者线程
+def producer():
+    with condition:
+        for i in range(5):
+            items.append(i)
+            print(f'Produced {i}')
+            condition.notify()  # 通知消费者线程
+            time.sleep(1)
+
+# 消费者线程
+def consumer():
+    while True:
+        with condition:
+            condition.wait()  # 等待通知
+            item = items.pop(0)
+            print(f'Consumed {item}')
+            if item == 4:  # 消费结束条件
+                break
+
+# 启动线程
+t1 = threading.Thread(target=producer)
+t2 = threading.Thread(target=consumer)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+```
+
+##### 4. 使用全局变量和锁进行线程间通信
+
+尽管全局变量可以用于线程间共享数据，但需要使用锁来避免竞争条件。
+
+```python
+import threading
+
+lock = threading.Lock()
+shared_data = []
+
+def producer():
+    global shared_data
+    for i in range(5):
+        with lock:
+            shared_data.append(i)
+            print(f'Produced {i}')
+
+def consumer():
+    global shared_data
+    while True:
+        with lock:
+            if shared_data:
+                item = shared_data.pop(0)
+                print(f'Consumed {item}')
+                if item == 4:  # 消费结束条件
+                    break
+
+# 启动线程
+t1 = threading.Thread(target=producer)
+t2 = threading.Thread(target=consumer)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+```
+
+##### 总结
+
+在 Python 中，线程间通信有多种方式可以实现，`queue` 模块是最常用且易于使用的一种。其他方式如 `Event`、`Condition` 以及全局变量加锁的方式也可以用于特定场景。选择哪种方法取决于具体的应用需求和复杂度。
+
 
 #### 4. 使用线程池
 
