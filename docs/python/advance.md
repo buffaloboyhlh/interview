@@ -948,29 +948,114 @@ if __name__ == '__main__':
 
 ##### 3.3 使用 `Manager` 共享复杂数据
 
-`multiprocessing.Manager` 提供了一个高层次的进程间共享数据的接口，可以共享字典、列表等复杂数据结构。
+`multiprocessing.Manager` 是 Python 标准库 `multiprocessing` 模块中的一个类，用于在多进程之间共享数据。`Manager` 提供了一种便捷的方式，允许多个进程在共享状态下工作，而不需要手动处理复杂的进程间通信机制，如管道或队列。
+
+###### 1. `multiprocessing.Manager` 的概述
+
+- **共享数据**: `Manager` 可以生成各种类型的共享数据结构，如列表、字典、队列、命名空间、锁等。这些数据结构可以被多个进程安全地共享和操作。
+- **进程安全**: `Manager` 创建的对象都是进程安全的，意味着它们可以被多个进程并发访问，而不会出现数据竞争问题。
+
+###### 2. 常用方法
+
+- **`Manager()`**: 创建一个 `Manager` 对象。通过该对象可以创建各种共享数据结构。
+- **`list()`**: 创建一个共享的列表对象。
+- **`dict()`**: 创建一个共享的字典对象。
+- **`Queue()`**: 创建一个共享的队列对象。
+- **`Namespace()`**: 创建一个共享的命名空间对象，类似于对象，允许动态地添加属性。
+- **`Lock()`**: 创建一个共享的锁对象，用于控制对共享资源的访问。
+
+###### 3. 示例代码
+
+以下是使用 `multiprocessing.Manager` 的一些示例，展示如何在多进程中共享数据：
+
+####### 共享列表示例
 
 ```python
 import multiprocessing
 
-def worker(d, key, value):
-    d[key] = value
+def worker(shared_list, index, value):
+    shared_list[index] = value
 
 if __name__ == '__main__':
     with multiprocessing.Manager() as manager:
-        shared_dict = manager.dict()
+        shared_list = manager.list([0] * 5)  # 创建一个共享列表
         processes = []
 
         for i in range(5):
-            p = multiprocessing.Process(target=worker, args=(shared_dict, i, i*2))
+            p = multiprocessing.Process(target=worker, args=(shared_list, i, i*10))
             processes.append(p)
             p.start()
 
         for p in processes:
             p.join()
 
-        print(shared_dict)
+        print(shared_list)  # 输出: [0, 10, 20, 30, 40]
 ```
+
+####### 共享字典示例
+
+```python
+import multiprocessing
+
+def worker(shared_dict, key, value):
+    shared_dict[key] = value
+
+if __name__ == '__main__':
+    with multiprocessing.Manager() as manager:
+        shared_dict = manager.dict()  # 创建一个共享字典
+        processes = []
+
+        for i in range(5):
+            p = multiprocessing.Process(target=worker, args=(shared_dict, f'key{i}', i*10))
+            processes.append(p)
+            p.start()
+
+        for p in processes:
+            p.join()
+
+        print(shared_dict)  # 输出: {'key0': 0, 'key1': 10, 'key2': 20, 'key3': 30, 'key4': 40}
+```
+
+####### 共享命名空间示例
+
+```python
+import multiprocessing
+
+def worker(namespace, value):
+    namespace.value = value
+
+if __name__ == '__main__':
+    with multiprocessing.Manager() as manager:
+        namespace = manager.Namespace()  # 创建一个共享命名空间
+        namespace.value = 0
+
+        processes = []
+
+        for i in range(5):
+            p = multiprocessing.Process(target=worker, args=(namespace, i*10))
+            processes.append(p)
+            p.start()
+
+        for p in processes:
+            p.join()
+
+        print(namespace.value)  # 输出: 40 (最后一个进程写入的值)
+```
+
+###### 4. 使用场景
+
+- **共享状态管理**: 在多进程编程中，`Manager` 非常适合用于管理共享状态。例如，在一个生产者-消费者模型中，`Manager` 可以用于管理共享队列。
+- **进程间通信**: `Manager` 提供的共享数据结构可以在多个进程间安全通信，避免手动处理管道、队列等低级通信方式。
+- **复杂同步**: 使用 `Manager` 创建的锁对象可以在多个进程间共享，用于控制对共享资源的访问，避免竞态条件。
+
+### 5. 注意事项
+
+- **性能问题**: `Manager` 提供的共享对象是在一个单独的进程中管理的，因此每次访问这些对象都会涉及进程间通信，可能会带来一定的性能开销。对于需要高性能的应用，手动使用 `Queue` 或 `Pipe` 可能会更高效。
+- **可扩展性**: 虽然 `Manager` 提供了易用的共享对象，但在非常复杂或大规模的并行任务中，可能需要更加定制化的同步机制。
+
+###### 总结
+
+`multiprocessing.Manager` 是一个强大的工具，允许在 Python 的多进程环境中轻松共享和管理数据结构。它简化了多进程同步的实现，适用于大多数需要共享状态的并行任务。然而，在对性能要求较高的场景中，可能需要考虑使用其他更加轻量级的进程间通信方式。
 
 #### 4. 进程同步
 
