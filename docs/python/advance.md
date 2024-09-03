@@ -348,9 +348,11 @@ asyncio.run(hello())
 import requests
 
 url = 'http://example.com/upload'
-files = {'file': open('example.txt', 'rb')}
 
-response = requests.post(url, files=files)
+# 使用 with 语句来确保文件被正确关闭
+with open('example.txt', 'rb') as file:
+    files = {'file': file}
+    response = requests.post(url, files=files)
 
 print(response.status_code)
 print(response.text)
