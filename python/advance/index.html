@@ -16,7 +16,7 @@
         <link rel="prev" href="../basic/">
       
       
-        <link rel="next" href="../websocket/">
+        <link rel="next" href="../datastruct/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -63,6 +63,8 @@
   
   
     
+    
+      
     
     
     
@@ -120,7 +122,33 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -405,6 +433,23 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tools/git/" class="md-tabs__link">
+        
+  
+    
+  
+  git
+
+      </a>
+    </li>
   
 
       
@@ -1843,8 +1888,308 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    <span class="md-ellipsis">
+      IO模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IO模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-io-blocking-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 阻塞 I/O (Blocking I/O)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 阻塞 I/O (Blocking I/O)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-io-non-blocking-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 非阻塞 I/O (Non-blocking I/O)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 非阻塞 I/O (Non-blocking I/O)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-io-io-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. I/O 多路复用 (I/O Multiplexing)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. I/O 多路复用 (I/O Multiplexing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-io-signal-driven-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 信号驱动 I/O (Signal-driven I/O)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 信号驱动 I/O (Signal-driven I/O)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-io-asynchronous-io-aio" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 异步 I/O (Asynchronous I/O, AIO)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 异步 I/O (Asynchronous I/O, AIO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. I/O 多路复用的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. I/O 模型概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-io_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. I/O 多路复用的机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      详细说明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="详细说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. select
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-poll" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. poll
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-epoll" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. epoll
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. I/O 多路复用的应用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. I/O 多路复用的优缺点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 总结
+    </span>
+  </a>
   
 </li>
         
@@ -2035,7 +2380,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -2253,27 +2598,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../websocket/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    websocket
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../datastruct/" class="md-nav__link">
         
   
@@ -2307,10 +2631,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_4" >
         
           
-          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2321,8 +2645,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
             <span class="md-nav__icon md-icon"></span>
             面试
           </label>
@@ -2439,10 +2763,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_5" >
         
           
-          <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2453,8 +2777,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
             <span class="md-nav__icon md-icon"></span>
             数据处理与分析
           </label>
@@ -2571,10 +2895,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_6" >
         
           
-          <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2585,8 +2909,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6">
             <span class="md-nav__icon md-icon"></span>
             标准库
           </label>
@@ -3039,10 +3363,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_7" >
         
           
-          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3053,8 +3377,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_7">
             <span class="md-nav__icon md-icon"></span>
             数据库
           </label>
@@ -3150,10 +3474,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_9" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_8" >
         
           
-          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3164,8 +3488,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_8">
             <span class="md-nav__icon md-icon"></span>
             爬虫
           </label>
@@ -3261,10 +3585,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_10" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_9" >
         
           
-          <label class="md-nav__link" for="__nav_1_10" id="__nav_1_10_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3275,8 +3599,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_9">
             <span class="md-nav__icon md-icon"></span>
             科学计算与机器学习
           </label>
@@ -3572,6 +3896,69 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webs/flask/advance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    进阶
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webs/flask/interview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    面试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webs/flask/questions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常见问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3653,6 +4040,75 @@
   
   <span class="md-ellipsis">
     面试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    wsgi
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            wsgi
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webs/WSGI/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础
   </span>
   
 
@@ -5379,6 +5835,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computers/http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    http
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computers/websocket/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    websockets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5450,6 +5948,26 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6760,8 +7278,308 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    <span class="md-ellipsis">
+      IO模式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IO模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-io-blocking-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 阻塞 I/O (Blocking I/O)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 阻塞 I/O (Blocking I/O)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-io-non-blocking-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 非阻塞 I/O (Non-blocking I/O)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 非阻塞 I/O (Non-blocking I/O)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-io-io-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. I/O 多路复用 (I/O Multiplexing)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. I/O 多路复用 (I/O Multiplexing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-io-signal-driven-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 信号驱动 I/O (Signal-driven I/O)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 信号驱动 I/O (Signal-driven I/O)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-io-asynchronous-io-aio" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 异步 I/O (Asynchronous I/O, AIO)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 异步 I/O (Asynchronous I/O, AIO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. I/O 多路复用的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. I/O 模型概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-io_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. I/O 多路复用的机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      详细说明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="详细说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. select
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-poll" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. poll
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-epoll" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. epoll
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. I/O 多路复用的应用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. I/O 多路复用的优缺点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 总结
+    </span>
+  </a>
   
 </li>
         
@@ -6952,7 +7770,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -8317,6 +9135,387 @@
 </ul>
 <h4 id="6_2">6. 小结<a class="headerlink" href="#6_2" title="Permanent link">&para;</a></h4>
 <p>Python 的异步编程提供了一种高效处理并发任务的方式，特别适用于 I/O 密集型任务。通过 <code>asyncio</code> 模块，Python 提供了强大的异步编程支持，包括协程、任务、事件循环、以及异步 I/O 操作。尽管异步编程可能增加代码复杂性，但在需要处理大量并发操作的场景下，它的优点是显而易见的。理解并掌握异步编程技巧，可以帮助你编写更高效、更响应的 Python 程序。</p>
+<h4 id="io">IO模式<a class="headerlink" href="#io" title="Permanent link">&para;</a></h4>
+<p>I/O（输入/输出）模式是操作系统和程序与硬件设备（如磁盘、网络、终端等）之间进行数据交互的方式。在现代操作系统中，I/O 操作是非常关键的，因为它涉及到数据的读取和写入，直接影响到程序的性能和响应能力。</p>
+<p>在操作系统和编程中，I/O 模式主要包括以下几种：</p>
+<h5 id="1-io-blocking-io">1. <strong>阻塞 I/O (Blocking I/O)</strong><a class="headerlink" href="#1-io-blocking-io" title="Permanent link">&para;</a></h5>
+<h6 id="_15">概念<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>定义</strong>: 在阻塞 I/O 模式下，当一个进程执行 I/O 操作时，如果操作无法立即完成，进程将被阻塞，直到操作完成为止。此时，进程处于等待状态，无法执行其他操作。</li>
+<li><strong>特点</strong>:</li>
+<li>简单易用，代码编写和理解较为直观。</li>
+<li>由于进程被阻塞，资源利用率较低，尤其是在处理多个 I/O 请求时，可能会导致性能瓶颈。</li>
+<li><strong>应用场景</strong>: 常用于简单的应用程序，如文件读取、基本网络通信等。</li>
+</ul>
+<h6 id="_16">示例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h6>
+<p>假设你需要读取一个文件内容，使用阻塞 I/O 模式的代码示例如下：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;example.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># 阻塞等待数据读取完成</span>
+</span></code></pre></div>
+<p>在这段代码中，<code>read</code> 操作会阻塞进程，直到文件读取完成为止。</p>
+<h5 id="2-io-non-blocking-io">2. <strong>非阻塞 I/O (Non-blocking I/O)</strong><a class="headerlink" href="#2-io-non-blocking-io" title="Permanent link">&para;</a></h5>
+<h6 id="_17">概念<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>定义</strong>: 在非阻塞 I/O 模式下，I/O 操作会立即返回，而不管数据是否已经准备好。如果操作无法立即完成，系统会返回一个错误（如 <code>EWOULDBLOCK</code>），进程可以继续执行其他任务。</li>
+<li><strong>特点</strong>:</li>
+<li>提高了进程的并发性，因为进程不会因等待 I/O 而被阻塞。</li>
+<li>需要处理返回的错误或空结果，这使得编程更加复杂。</li>
+<li><strong>应用场景</strong>: 常用于需要处理高并发的网络服务器等场景。</li>
+</ul>
+<h6 id="_18">示例<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h6>
+<p>在非阻塞模式下读取文件的示例：</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_NONBLOCK</span><span class="p">);</span><span class="w">  </span><span class="c1">// 以非阻塞模式打开文件</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="kt">char</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span><span class="w">  </span><span class="c1">// 如果没有数据立即可读，read 会立即返回而不会阻塞</span>
+</span></code></pre></div>
+<p>这里的 <code>read</code> 函数会立即返回，不论数据是否准备好，进程可以继续其他操作。</p>
+<h5 id="3-io-io-multiplexing">3. <strong>I/O 多路复用 (I/O Multiplexing)</strong><a class="headerlink" href="#3-io-io-multiplexing" title="Permanent link">&para;</a></h5>
+<h6 id="_19">概念<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>定义</strong>: I/O 多路复用允许一个进程同时监视多个文件描述符，当其中任何一个文件描述符就绪时（如可读或可写），进程可以对其进行 I/O 操作。这种模式通过减少进程的阻塞时间来提高并发性。</li>
+<li><strong>常见方法</strong>: <code>select</code>、<code>poll</code> 和 <code>epoll</code> 是常见的 I/O 多路复用方法。</li>
+<li><strong>特点</strong>:</li>
+<li>适合处理大量 I/O 请求，如需要同时处理多个网络连接的服务器。</li>
+<li>可能在处理大量文件描述符时产生性能瓶颈，特别是在使用 <code>select</code> 和 <code>poll</code> 时。</li>
+<li><strong>应用场景</strong>: 常用于高并发服务器、网络编程等需要同时处理多个 I/O 操作的场景。</li>
+</ul>
+<h6 id="_20">示例<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h6>
+<p>使用 <code>select</code> 监视多个文件描述符的示例：</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="n">fd_set</span><span class="w"> </span><span class="n">readfds</span><span class="p">;</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="n">FD_ZERO</span><span class="p">(</span><span class="o">&amp;</span><span class="n">readfds</span><span class="p">);</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="n">FD_SET</span><span class="p">(</span><span class="n">fd1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">readfds</span><span class="p">);</span>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="n">FD_SET</span><span class="p">(</span><span class="n">fd2</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">readfds</span><span class="p">);</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="n">select</span><span class="p">(</span><span class="n">fd2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">readfds</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">// 阻塞等待任意一个文件描述符可读</span>
+</span></code></pre></div>
+<p>在这个示例中，<code>select</code> 会阻塞，直到 <code>fd1</code> 或 <code>fd2</code> 中有一个文件描述符可读。</p>
+<h5 id="4-io-signal-driven-io">4. <strong>信号驱动 I/O (Signal-driven I/O)</strong><a class="headerlink" href="#4-io-signal-driven-io" title="Permanent link">&para;</a></h5>
+<h6 id="_21">概念<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>定义</strong>: 信号驱动 I/O 允许进程在 I/O 设备准备好时接收到一个信号，然后在信号处理程序中执行 I/O 操作。它是一种异步 I/O 的形式。</li>
+<li><strong>特点</strong>:</li>
+<li>进程在等待 I/O 设备就绪时可以继续执行其他任务，I/O 设备就绪后通过信号通知进程。</li>
+<li>编程较为复杂，需要处理信号和信号处理程序。</li>
+<li><strong>应用场景</strong>: 用于对实时性要求较高的场景，如网络应用中的异步事件处理。</li>
+</ul>
+<h6 id="_22">示例<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h6>
+<p>伪代码示例：</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="n">signal</span><span class="p">(</span><span class="n">SIGIO</span><span class="p">,</span><span class="w"> </span><span class="n">io_handler</span><span class="p">);</span><span class="w">  </span><span class="c1">// 设置信号处理程序</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">F_SETFL</span><span class="p">,</span><span class="w"> </span><span class="n">O_ASYNC</span><span class="p">);</span><span class="w">  </span><span class="c1">// 使能异步 I/O</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="c1">// 当 fd 可读时，会触发 SIGIO 信号，调用 io_handler 处理 I/O</span>
+</span></code></pre></div>
+<h5 id="5-io-asynchronous-io-aio">5. <strong>异步 I/O (Asynchronous I/O, AIO)</strong><a class="headerlink" href="#5-io-asynchronous-io-aio" title="Permanent link">&para;</a></h5>
+<h6 id="_23">概念<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h6>
+<ul>
+<li><strong>定义</strong>: 在异步 I/O 模式下，进程发起 I/O 操作后立即返回，而不等待操作完成。I/O 操作由操作系统在后台完成，完成后会通知进程（通过信号或回调函数），此时进程可以处理 I/O 结果。</li>
+<li><strong>特点</strong>:</li>
+<li>最大化 CPU 和 I/O 设备的利用率，适合高性能应用。</li>
+<li>编程较为复杂，需要管理 I/O 操作的回调和通知。</li>
+<li><strong>应用场景</strong>: 常用于高性能服务器、数据库系统等需要最大化并发和性能的应用。</li>
+</ul>
+<h6 id="_24">示例<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h6>
+<p>使用异步 I/O 读取文件的伪代码：</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">aiocb</span><span class="w"> </span><span class="n">cb</span><span class="p">;</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="n">cb</span><span class="p">.</span><span class="n">aio_fildes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="n">cb</span><span class="p">.</span><span class="n">aio_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="n">cb</span><span class="p">.</span><span class="n">aio_nbytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+</span><span id="__span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a><span class="n">aio_read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cb</span><span class="p">);</span><span class="w">  </span><span class="c1">// 发起异步读取请求，立即返回</span>
+</span><span id="__span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="c1">// 程序可以继续执行其他操作，稍后会收到 I/O 完成通知</span>
+</span></code></pre></div>
+<h5 id="_25">总结<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>阻塞 I/O</strong>: 简单直观，但会导致进程等待 I/O 操作完成而阻塞。</li>
+<li><strong>非阻塞 I/O</strong>: 提高了并发性，但需要手动处理未完成的 I/O 操作。</li>
+<li><strong>I/O 多路复用</strong>: 允许同时监视多个 I/O 操作，提高了并发性，适合处理大量 I/O 请求。</li>
+<li><strong>信号驱动 I/O</strong>: 通过信号异步处理 I/O 操作，适合实时性要求较高的场景。</li>
+<li><strong>异步 I/O</strong>: 提供最高的并发和性能，但编程复杂度也最高。</li>
+</ul>
+<p>不同的 I/O 模式适用于不同的应用场景，选择合适的 I/O 模式可以显著提高程序的性能和响应能力。</p>
+<h6 id="_26">实现<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h6>
+<p>I/O 多路复用是一种允许程序同时监控多个 I/O 通道（如网络连接、文件描述符等）的方法，通常用于处理网络服务器、并发客户端等场景。它可以避免在处理多个 I/O 操作时阻塞线程或进程，从而提高系统的并发处理能力。下面详细讲解 I/O 多路复用的概念、机制、应用场景和具体实现。</p>
+<h3 id="1-io">1. I/O 多路复用的概念<a class="headerlink" href="#1-io" title="Permanent link">&para;</a></h3>
+<p>I/O 多路复用的核心思想是通过单一线程或进程来监控多个文件描述符（文件、套接字等），当这些描述符中的任何一个准备好执行 I/O 操作（如读或写）时，操作系统会通知应用程序，应用程序则对该文件描述符进行相应的处理。</p>
+<h3 id="2-io">2. I/O 模型概述<a class="headerlink" href="#2-io" title="Permanent link">&para;</a></h3>
+<p>在操作系统中，常见的 I/O 模型包括：</p>
+<ul>
+<li>
+<p><strong>阻塞 I/O</strong>：应用程序调用 I/O 操作时会被阻塞，直到操作完成。</p>
+</li>
+<li>
+<p><strong>非阻塞 I/O</strong>：应用程序调用 I/O 操作时立即返回，如果没有数据可用，则返回一个错误。</p>
+</li>
+<li>
+<p><strong>I/O 多路复用</strong>：通过系统调用 <code>select</code>、<code>poll</code> 或 <code>epoll</code>，一个线程可以监控多个文件描述符，只有在某些描述符可用时才进行实际的 I/O 操作。</p>
+</li>
+<li>
+<p><strong>信号驱动 I/O</strong>：使用信号通知应用程序何时可以执行 I/O 操作。</p>
+</li>
+<li>
+<p><strong>异步 I/O</strong>：应用程序发出 I/O 请求，操作系统在操作完成后通知应用程序。</p>
+</li>
+</ul>
+<h3 id="3-io_1">3. I/O 多路复用的机制<a class="headerlink" href="#3-io_1" title="Permanent link">&para;</a></h3>
+<p><a href="https://blog.csdn.net/randompeople/article/details/109485146">IO多路复用详解</a></p>
+<p>以下是 <code>select</code>、<code>poll</code> 和 <code>epoll</code> 的对比表格，涵盖了它们的主要特性和适用场景：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>select</code></th>
+<th><code>poll</code></th>
+<th><code>epoll</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>实现机制</strong></td>
+<td>基于轮询的机制</td>
+<td>基于事件驱动的机制</td>
+<td>基于事件驱动的机制，适用于 Linux</td>
+</tr>
+<tr>
+<td><strong>文件描述符限制</strong></td>
+<td>通常为 1024（取决于系统设置）</td>
+<td>无固定限制</td>
+<td>无固定限制</td>
+</tr>
+<tr>
+<td><strong>性能</strong></td>
+<td>性能随着文件描述符数量增加而下降</td>
+<td>性能优于 <code>select</code>，适合更多文件描述符</td>
+<td>性能优秀，适合大量文件描述符</td>
+</tr>
+<tr>
+<td><strong>内核/用户态开销</strong></td>
+<td>每次调用 <code>select</code> 时，传递和接收整个文件描述符集合</td>
+<td>每次调用 <code>poll</code> 时，传递和接收事件数组</td>
+<td>高效的事件通知，内核只维护一个文件描述符表</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>适合少量文件描述符的场景</td>
+<td>适合中等数量的文件描述符</td>
+<td>适合高并发、大量文件描述符的场景</td>
+</tr>
+<tr>
+<td><strong>事件通知方式</strong></td>
+<td>文件描述符集合中哪些准备好进行 I/O 操作</td>
+<td>返回所有准备好的文件描述符及其事件</td>
+<td>使用事件表，返回发生事件的文件描述符</td>
+</tr>
+<tr>
+<td><strong>编程复杂度</strong></td>
+<td>编程简单，但效率较低</td>
+<td>编程较简单，性能较高</td>
+<td>编程复杂度较高，但性能和扩展性最优</td>
+</tr>
+<tr>
+<td><strong>线程安全</strong></td>
+<td>需要注意线程安全的问题</td>
+<td>需要注意线程安全的问题</td>
+<td>线程安全，适合高并发应用</td>
+</tr>
+<tr>
+<td><strong>适用操作系统</strong></td>
+<td>主要适用于 Unix/Linux 和 Windows</td>
+<td>主要适用于 Unix/Linux</td>
+<td>主要适用于 Linux</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_27">详细说明<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong><code>select</code></strong>：适用于文件描述符数量较少的情况，简单易用，但在处理大量文件描述符时性能会受到影响。每次调用都需要重新设置文件描述符集合，且有文件描述符数量的上限。</p>
+</li>
+<li>
+<p><strong><code>poll</code></strong>：在处理大量文件描述符时性能优于 <code>select</code>，没有固定的文件描述符数量限制。每次调用只需传递和接收事件数组，适合中等规模的应用。</p>
+</li>
+<li>
+<p><strong><code>epoll</code></strong>：专为 Linux 设计，能够处理成千上万的文件描述符，性能最好。支持边缘触发和水平触发模式，适合高并发的场景。相比 <code>select</code> 和 <code>poll</code>，<code>epoll</code> 在处理大规模并发连接时效率最高。</p>
+</li>
+</ul>
+<p>根据实际应用场景和需求，可以选择最适合的 I/O 多路复用机制来优化系统的性能。</p>
+<p>I/O 多路复用在操作系统中的实现主要有以下几种机制：</p>
+<h4 id="1-select">1. <code>select</code><a class="headerlink" href="#1-select" title="Permanent link">&para;</a></h4>
+<p><code>select</code> 是一种最早的 I/O 多路复用机制，适用于监视少量文件描述符。</p>
+<ul>
+<li><strong>使用方法</strong>：</li>
+<li>应用程序将一组文件描述符集合传递给 <code>select</code>。</li>
+<li><code>select</code> 在指定的时间内阻塞，直到其中一个或多个文件描述符变为可读、可写或发生异常。</li>
+<li>
+<p>返回后，应用程序可以遍历集合，找出那些就绪的描述符进行处理。</p>
+</li>
+<li>
+<p><strong>缺点</strong>：文件描述符集合的大小有限制（通常为 1024），且每次调用都需要重新设置集合，性能较差。</p>
+</li>
+</ul>
+<p><strong>代码示例</strong>：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kn">import</span> <span class="nn">select</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="c1"># 创建监听套接字</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">12345</span><span class="p">))</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>
+</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="c1"># 设置需要监控的文件描述符集合</span>
+</span><span id="__span-57-11"><a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">server_socket</span><span class="p">]</span>
+</span><span id="__span-57-12"><a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-57-13"><a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a>
+</span><span id="__span-57-14"><a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a><span class="k">while</span> <span class="n">inputs</span><span class="p">:</span>
+</span><span id="__span-57-15"><a id="__codelineno-57-15" name="__codelineno-57-15" href="#__codelineno-57-15"></a>    <span class="n">readable</span><span class="p">,</span> <span class="n">writable</span><span class="p">,</span> <span class="n">exceptional</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+</span><span id="__span-57-16"><a id="__codelineno-57-16" name="__codelineno-57-16" href="#__codelineno-57-16"></a>
+</span><span id="__span-57-17"><a id="__codelineno-57-17" name="__codelineno-57-17" href="#__codelineno-57-17"></a>    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">readable</span><span class="p">:</span>
+</span><span id="__span-57-18"><a id="__codelineno-57-18" name="__codelineno-57-18" href="#__codelineno-57-18"></a>        <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="n">server_socket</span><span class="p">:</span>
+</span><span id="__span-57-19"><a id="__codelineno-57-19" name="__codelineno-57-19" href="#__codelineno-57-19"></a>            <span class="n">connection</span><span class="p">,</span> <span class="n">client_address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span><span id="__span-57-20"><a id="__codelineno-57-20" name="__codelineno-57-20" href="#__codelineno-57-20"></a>            <span class="n">connection</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-57-21"><a id="__codelineno-57-21" name="__codelineno-57-21" href="#__codelineno-57-21"></a>            <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+</span><span id="__span-57-22"><a id="__codelineno-57-22" name="__codelineno-57-22" href="#__codelineno-57-22"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-57-23"><a id="__codelineno-57-23" name="__codelineno-57-23" href="#__codelineno-57-23"></a>            <span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+</span><span id="__span-57-24"><a id="__codelineno-57-24" name="__codelineno-57-24" href="#__codelineno-57-24"></a>            <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-57-25"><a id="__codelineno-57-25" name="__codelineno-57-25" href="#__codelineno-57-25"></a>                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-57-26"><a id="__codelineno-57-26" name="__codelineno-57-26" href="#__codelineno-57-26"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-57-27"><a id="__codelineno-57-27" name="__codelineno-57-27" href="#__codelineno-57-27"></a>                <span class="n">inputs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-57-28"><a id="__codelineno-57-28" name="__codelineno-57-28" href="#__codelineno-57-28"></a>                <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-57-29"><a id="__codelineno-57-29" name="__codelineno-57-29" href="#__codelineno-57-29"></a>
+</span><span id="__span-57-30"><a id="__codelineno-57-30" name="__codelineno-57-30" href="#__codelineno-57-30"></a>    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">writable</span><span class="p">:</span>
+</span><span id="__span-57-31"><a id="__codelineno-57-31" name="__codelineno-57-31" href="#__codelineno-57-31"></a>        <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;ACK&#39;</span><span class="p">)</span>
+</span><span id="__span-57-32"><a id="__codelineno-57-32" name="__codelineno-57-32" href="#__codelineno-57-32"></a>        <span class="n">outputs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-57-33"><a id="__codelineno-57-33" name="__codelineno-57-33" href="#__codelineno-57-33"></a>
+</span><span id="__span-57-34"><a id="__codelineno-57-34" name="__codelineno-57-34" href="#__codelineno-57-34"></a>    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">exceptional</span><span class="p">:</span>
+</span><span id="__span-57-35"><a id="__codelineno-57-35" name="__codelineno-57-35" href="#__codelineno-57-35"></a>        <span class="n">inputs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-57-36"><a id="__codelineno-57-36" name="__codelineno-57-36" href="#__codelineno-57-36"></a>        <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+</span><span id="__span-57-37"><a id="__codelineno-57-37" name="__codelineno-57-37" href="#__codelineno-57-37"></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-57-38"><a id="__codelineno-57-38" name="__codelineno-57-38" href="#__codelineno-57-38"></a>        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+<h4 id="2-poll">2. <code>poll</code><a class="headerlink" href="#2-poll" title="Permanent link">&para;</a></h4>
+<p><code>poll</code> 是 <code>select</code> 的改进版本，去除了文件描述符数量限制，并返回所有就绪的文件描述符。</p>
+<ul>
+<li><strong>使用方法</strong>：</li>
+<li>应用程序将文件描述符及其感兴趣的事件注册到 <code>poll</code> 中。</li>
+<li>
+<p><code>poll</code> 阻塞等待事件发生，一旦发生就返回所有就绪的文件描述符。</p>
+</li>
+<li>
+<p><strong>优点</strong>：没有文件描述符数量限制，性能优于 <code>select</code>。</p>
+</li>
+</ul>
+<p><strong>代码示例</strong>：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="kn">import</span> <span class="nn">select</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">12345</span><span class="p">))</span>
+</span><span id="__span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-58-7"><a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-58-8"><a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a>
+</span><span id="__span-58-9"><a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a><span class="n">poller</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+</span><span id="__span-58-10"><a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="n">poller</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">server_socket</span><span class="p">,</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">)</span>
+</span><span id="__span-58-11"><a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a>
+</span><span id="__span-58-12"><a id="__codelineno-58-12" name="__codelineno-58-12" href="#__codelineno-58-12"></a><span class="n">fd_to_socket</span> <span class="o">=</span> <span class="p">{</span><span class="n">server_socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">():</span> <span class="n">server_socket</span><span class="p">}</span>
+</span><span id="__span-58-13"><a id="__codelineno-58-13" name="__codelineno-58-13" href="#__codelineno-58-13"></a>
+</span><span id="__span-58-14"><a id="__codelineno-58-14" name="__codelineno-58-14" href="#__codelineno-58-14"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-58-15"><a id="__codelineno-58-15" name="__codelineno-58-15" href="#__codelineno-58-15"></a>    <span class="n">events</span> <span class="o">=</span> <span class="n">poller</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+</span><span id="__span-58-16"><a id="__codelineno-58-16" name="__codelineno-58-16" href="#__codelineno-58-16"></a>    <span class="k">for</span> <span class="n">fd</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+</span><span id="__span-58-17"><a id="__codelineno-58-17" name="__codelineno-58-17" href="#__codelineno-58-17"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">fd</span><span class="p">]</span>
+</span><span id="__span-58-18"><a id="__codelineno-58-18" name="__codelineno-58-18" href="#__codelineno-58-18"></a>        <span class="k">if</span> <span class="n">flag</span> <span class="o">&amp;</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">:</span>
+</span><span id="__span-58-19"><a id="__codelineno-58-19" name="__codelineno-58-19" href="#__codelineno-58-19"></a>            <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="n">server_socket</span><span class="p">:</span>
+</span><span id="__span-58-20"><a id="__codelineno-58-20" name="__codelineno-58-20" href="#__codelineno-58-20"></a>                <span class="n">connection</span><span class="p">,</span> <span class="n">client_address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span><span id="__span-58-21"><a id="__codelineno-58-21" name="__codelineno-58-21" href="#__codelineno-58-21"></a>                <span class="n">connection</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-58-22"><a id="__codelineno-58-22" name="__codelineno-58-22" href="#__codelineno-58-22"></a>                <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">connection</span><span class="o">.</span><span class="n">fileno</span><span class="p">()]</span> <span class="o">=</span> <span class="n">connection</span>
+</span><span id="__span-58-23"><a id="__codelineno-58-23" name="__codelineno-58-23" href="#__codelineno-58-23"></a>                <span class="n">poller</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">)</span>
+</span><span id="__span-58-24"><a id="__codelineno-58-24" name="__codelineno-58-24" href="#__codelineno-58-24"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-58-25"><a id="__codelineno-58-25" name="__codelineno-58-25" href="#__codelineno-58-25"></a>                <span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+</span><span id="__span-58-26"><a id="__codelineno-58-26" name="__codelineno-58-26" href="#__codelineno-58-26"></a>                <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-58-27"><a id="__codelineno-58-27" name="__codelineno-58-27" href="#__codelineno-58-27"></a>                    <span class="n">poller</span><span class="o">.</span><span class="n">modify</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLOUT</span><span class="p">)</span>
+</span><span id="__span-58-28"><a id="__codelineno-58-28" name="__codelineno-58-28" href="#__codelineno-58-28"></a>                <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-58-29"><a id="__codelineno-58-29" name="__codelineno-58-29" href="#__codelineno-58-29"></a>                    <span class="n">poller</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-58-30"><a id="__codelineno-58-30" name="__codelineno-58-30" href="#__codelineno-58-30"></a>                    <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-58-31"><a id="__codelineno-58-31" name="__codelineno-58-31" href="#__codelineno-58-31"></a>                    <span class="k">del</span> <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">fd</span><span class="p">]</span>
+</span><span id="__span-58-32"><a id="__codelineno-58-32" name="__codelineno-58-32" href="#__codelineno-58-32"></a>        <span class="k">elif</span> <span class="n">flag</span> <span class="o">&amp;</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLOUT</span><span class="p">:</span>
+</span><span id="__span-58-33"><a id="__codelineno-58-33" name="__codelineno-58-33" href="#__codelineno-58-33"></a>            <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;ACK&#39;</span><span class="p">)</span>
+</span><span id="__span-58-34"><a id="__codelineno-58-34" name="__codelineno-58-34" href="#__codelineno-58-34"></a>            <span class="n">poller</span><span class="o">.</span><span class="n">modify</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">)</span>
+</span><span id="__span-58-35"><a id="__codelineno-58-35" name="__codelineno-58-35" href="#__codelineno-58-35"></a>        <span class="k">elif</span> <span class="n">flag</span> <span class="o">&amp;</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLHUP</span><span class="p">:</span>
+</span><span id="__span-58-36"><a id="__codelineno-58-36" name="__codelineno-58-36" href="#__codelineno-58-36"></a>            <span class="n">poller</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span><span id="__span-58-37"><a id="__codelineno-58-37" name="__codelineno-58-37" href="#__codelineno-58-37"></a>            <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-58-38"><a id="__codelineno-58-38" name="__codelineno-58-38" href="#__codelineno-58-38"></a>            <span class="k">del</span> <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">fd</span><span class="p">]</span>
+</span></code></pre></div>
+<h4 id="3-epoll">3. <code>epoll</code><a class="headerlink" href="#3-epoll" title="Permanent link">&para;</a></h4>
+<p><code>epoll</code> 是 Linux 系统中特有的 I/O 多路复用机制，适用于处理大量并发连接，性能优越。</p>
+<ul>
+<li><strong>使用方法</strong>：</li>
+<li><code>epoll_create</code>：创建一个 epoll 实例。</li>
+<li><code>epoll_ctl</code>：将文件描述符及其感兴趣的事件注册到 epoll 中。</li>
+<li>
+<p><code>epoll_wait</code>：等待事件发生并返回就绪的文件描述符。</p>
+</li>
+<li>
+<p><strong>优点</strong>：效率高、适合高并发场景，不需要每次调用都重新设置文件描述符集合。</p>
+</li>
+</ul>
+<p><strong>代码示例</strong>：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="kn">import</span> <span class="nn">select</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">12345</span><span class="p">))</span>
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="n">server_socket</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-59-8"><a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>
+</span><span id="__span-59-9"><a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a><span class="n">epoll</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">epoll</span><span class="p">()</span>
+</span><span id="__span-59-10"><a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a><span class="n">epoll</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">server_socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLIN</span><span class="p">)</span>
+</span><span id="__span-59-11"><a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a>
+</span><span id="__span-59-12"><a id="__codelineno-59-12" name="__codelineno-59-12" href="#__codelineno-59-12"></a><span class="n">fd_to_socket</span> <span class="o">=</span> <span class="p">{</span><span class="n">server_socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">():</span> <span class="n">server_socket</span><span class="p">}</span>
+</span><span id="__span-59-13"><a id="__codelineno-59-13" name="__codelineno-59-13" href="#__codelineno-59-13"></a>
+</span><span id="__span-59-14"><a id="__codelineno-59-14" name="__codelineno-59-14" href="#__codelineno-59-14"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-59-15"><a id="__codelineno-59-15" name="__codelineno-59-15" href="#__codelineno-59-15"></a>    <span class="n">events</span> <span class="o">=</span> <span class="n">epoll</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+</span><span id="__span-59-16"><a id="__codelineno-59-16" name="__codelineno-59-16" href="#__codelineno-59-16"></a>    <span class="k">for</span> <span class="n">fd</span><span class="p">,</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+</span><span id="__span-59-17"><a id="__codelineno-59-17" name="__codelineno-59-17" href="#__codelineno-59-17"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">fd</span><span class="p">]</span>
+</span><span id="__span-59-18"><a id="__codelineno-59-18" name="__codelineno-59-18" href="#__codelineno-59-18"></a>        <span class="k">if</span> <span class="n">event</span> <span class="o">&amp;</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLIN</span><span class="p">:</span>
+</span><span id="__span-59-19"><a id="__codelineno-59-19" name="__codelineno-59-19" href="#__codelineno-59-19"></a>            <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="n">server_socket</span><span class="p">:</span>
+</span><span id="__span-59-20"><a id="__codelineno-59-20" name="__codelineno-59-20" href="#__codelineno-59-20"></a>                <span class="n">connection</span><span class="p">,</span> <span class="n">client_address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span><span id="__span-59-21"><a id="__codelineno-59-21" name="__codelineno-59-21" href="#__codelineno-59-21"></a>                <span class="n">connection</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-59-22"><a id="__codelineno-59-22" name="__codelineno-59-22" href="#__codelineno-59-22"></a>                <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">connection</span><span class="o">.</span><span class="n">fileno</span><span class="p">()]</span> <span class="o">=</span> <span class="n">connection</span>
+</span><span id="__span-59-23"><a id="__codelineno-59-23" name="__codelineno-59-23" href="#__codelineno-59-23"></a>                <span class="n">epoll</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">connection</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLIN</span><span class="p">)</span>
+</span><span id="__span-59-24"><a id="__codelineno-59-24" name="__codelineno-59-24" href="#__codelineno-59-24"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-59-25"><a id="__codelineno-59-25" name="__codelineno-59-25" href="#__codelineno-59-25"></a>                <span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+</span><span id="__span-59-26"><a id="__codelineno-59-26" name="__codelineno-59-26" href="#__codelineno-59-26"></a>                <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-59-27"><a id="__codelineno-59-27" name="__codelineno-59-27" href="#__codelineno-59-27"></a>                    <span class="n">epoll</span><span class="o">.</span><span class="n">modify</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLOUT</span><span class="p">)</span>
+</span><span id="__span-59-28"><a id="__codelineno-59-28" name="__codelineno-59-28" href="#__codelineno-59-28"></a>                <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-59-29"><a id="__codelineno-59-29" name="__codelineno-59-29" href="#__codelineno-59-29"></a>                    <span class="n">epoll</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+</span><span id="__span-59-30"><a id="__codelineno-59-30" name="__codelineno-59-30" href="#__codelineno-59-30"></a>                    <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-59-31"><a id="__codelineno-59-31" name="__codelineno-59-31" href="#__codelineno-59-31"></a>                    <span class="k">del</span> <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">fd</span><span class="p">]</span>
+</span><span id="__span-59-32"><a id="__codelineno-59-32" name="__codelineno-59-32" href="#__codelineno-59-32"></a>        <span class="k">elif</span> <span class="n">event</span> <span class="o">&amp;</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLOUT</span><span class="p">:</span>
+</span><span id="__span-59-33"><a id="__codelineno-59-33" name="__codelineno-59-33" href="#__codelineno-59-33"></a>            <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;ACK&#39;</span><span class="p">)</span>
+</span><span id="__span-59-34"><a id="__codelineno-59-34" name="__codelineno-59-34" href="#__codelineno-59-34"></a>            <span class="n">epoll</span><span class="o">.</span><span class="n">modify</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLIN</span><span class="p">)</span>
+</span><span id="__span-59-35"><a id="__codelineno-59-35" name="__codelineno-59-35" href="#__codelineno-59-35"></a>        <span class="k">elif</span> <span class="n">event</span> <span class="o">&amp;</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLHUP</span><span class="p">:</span>
+</span><span id="__span-59-36"><a id="__codelineno-59-36" name="__codelineno-59-36" href="#__codelineno-59-36"></a>            <span class="n">epoll</span><span class="o">.</span><span class="n">unregister</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+</span><span id="__span-59-37"><a id="__codelineno-59-37" name="__codelineno-59-37" href="#__codelineno-59-37"></a>            <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-59-38"><a id="__codelineno-59-38" name="__codelineno-59-38" href="#__codelineno-59-38"></a>            <span class="k">del</span> <span class="n">fd_to_socket</span><span class="p">[</span><span class="n">fd</span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="4-io">4. I/O 多路复用的应用场景<a class="headerlink" href="#4-io" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>高并发网络服务器</strong>：如 Web 服务器、聊天服务器，需要同时处理大量的客户端连接。</li>
+<li><strong>实时数据处理</strong>：如交易系统、日志系统，能够高效处理多个数据源的实时数据。</li>
+<li><strong>数据库连接池管理</strong>：管理多个数据库连接，优化资源利用。</li>
+</ul>
+<h3 id="5-io">5. I/O 多路复用的优缺点<a class="headerlink" href="#5-io" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>优点</strong>：</li>
+<li>提高了系统处理大量并发连接的能力。</li>
+<li>避免了线程或进程的频繁切换，降低了系统开销。</li>
+<li>
+<p>提供了较好的灵活性，适应多种 I/O 操作需求。</p>
+</li>
+<li>
+<p><strong>缺点</strong>：</p>
+</li>
+<li>编程复杂度高，尤其是在处理大量并发连接时，需要考虑各种异常情况。</li>
+<li>在一些特定场景下，性能可能不如直接使用线程或进程模型。</li>
+</ul>
+<h3 id="6_3">6. 总结<a class="headerlink" href="#6_3" title="Permanent link">&para;</a></h3>
+<p>I/O 多路复用是现代高性能服务器中不可或缺的一项技术。通过 <code>select</code>、<code>poll</code> 和 <code>epoll</code> 等机制，应用程序可以高效地处理多个 I/O 通道的并发操作。这些机制各有优缺点，开发者应根据具体的应用场景选择合适的 I/O 多路复用技术，以提高系统的并发能力和性能。</p>
 <h2 id="python_1">五、python命令<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h2>
 <p>Python 命令行选项提供了多种功能，可以帮助你控制 Python 解释器的行为、执行特定的任务或进行调试。以下是常见的 Python 命令行选项的详细解释：</p>
 <h3 id="1-c-command">1. <code>-c command</code><a class="headerlink" href="#1-c-command" title="Permanent link">&para;</a></h3>
@@ -8324,7 +9523,7 @@
 <li><strong>作用</strong>：直接执行字符串中的 Python 代码。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;Hello, World!&#39;)&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;print(&#39;Hello, World!&#39;)&quot;</span>
 </span></code></pre></div>
 <p>这将直接输出 <code>Hello, World!</code>。</p>
 <h3 id="2-m-module-name">2. <code>-m module-name</code><a class="headerlink" href="#2-m-module-name" title="Permanent link">&para;</a></h3>
@@ -8332,7 +9531,7 @@
 <li><strong>作用</strong>：以脚本的方式运行指定的模块。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>python<span class="w"> </span>-m<span class="w"> </span>http.server
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>python<span class="w"> </span>-m<span class="w"> </span>http.server
 </span></code></pre></div>
 <p>这将在当前目录下启动一个简单的 HTTP 服务器。</p>
 <h3 id="3-v-version">3. <code>-V</code> 或 <code>--version</code><a class="headerlink" href="#3-v-version" title="Permanent link">&para;</a></h3>
@@ -8340,7 +9539,7 @@
 <li><strong>作用</strong>：显示 Python 版本信息并退出。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>python<span class="w"> </span>-V
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>python<span class="w"> </span>-V
 </span></code></pre></div>
 <p>这将输出 Python 的版本号，例如 <code>Python 3.9.1</code>。</p>
 <h3 id="4-v">4. <code>-v</code><a class="headerlink" href="#4-v" title="Permanent link">&para;</a></h3>
@@ -8348,7 +9547,7 @@
 <li><strong>作用</strong>：详细模式，输出更详细的导入信息和其他调试信息。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>python<span class="w"> </span>-v<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>python<span class="w"> </span>-v<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将运行 <code>script.py</code>，并输出模块导入的详细信息。</p>
 <h3 id="5-o">5. <code>-O</code><a class="headerlink" href="#5-o" title="Permanent link">&para;</a></h3>
@@ -8356,7 +9555,7 @@
 <li><strong>作用</strong>：以优化模式运行，移除断言语句并生成优化的字节码文件（<code>.pyo</code>）。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>python<span class="w"> </span>-O<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>python<span class="w"> </span>-O<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将以优化模式运行 <code>script.py</code>。</p>
 <h3 id="6-oo">6. <code>-OO</code><a class="headerlink" href="#6-oo" title="Permanent link">&para;</a></h3>
@@ -8364,7 +9563,7 @@
 <li><strong>作用</strong>：进一步优化，移除断言语句和 <code>__doc__</code> 文档字符串。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>python<span class="w"> </span>-OO<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>python<span class="w"> </span>-OO<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将移除所有断言和文档字符串，并运行 <code>script.py</code>。</p>
 <h3 id="7-b">7. <code>-B</code><a class="headerlink" href="#7-b" title="Permanent link">&para;</a></h3>
@@ -8372,7 +9571,7 @@
 <li><strong>作用</strong>：禁止生成 <code>.pyc</code> 文件（编译的字节码文件）。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>python<span class="w"> </span>-B<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>python<span class="w"> </span>-B<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将运行 <code>script.py</code>，但不会生成 <code>.pyc</code> 文件。</p>
 <h3 id="8-e">8. <code>-E</code><a class="headerlink" href="#8-e" title="Permanent link">&para;</a></h3>
@@ -8380,7 +9579,7 @@
 <li><strong>作用</strong>：忽略所有与环境变量有关的设置，如 <code>PYTHONPATH</code>。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>python<span class="w"> </span>-E<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>python<span class="w"> </span>-E<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将忽略所有 Python 相关的环境变量并运行 <code>script.py</code>。</p>
 <h3 id="9-s">9. <code>-s</code><a class="headerlink" href="#9-s" title="Permanent link">&para;</a></h3>
@@ -8388,7 +9587,7 @@
 <li><strong>作用</strong>：在启动时忽略用户的 <code>site-packages</code> 目录。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>python<span class="w"> </span>-s<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>python<span class="w"> </span>-s<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将忽略 <code>site-packages</code> 中的内容并运行 <code>script.py</code>。</p>
 <h3 id="10-s">10. <code>-S</code><a class="headerlink" href="#10-s" title="Permanent link">&para;</a></h3>
@@ -8396,7 +9595,7 @@
 <li><strong>作用</strong>：启动时不自动导入 <code>site</code> 模块，这可以减少启动时间。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>python<span class="w"> </span>-S<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>python<span class="w"> </span>-S<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将不导入 <code>site</code> 模块，并运行 <code>script.py</code>。</p>
 <h3 id="11-u">11. <code>-u</code><a class="headerlink" href="#11-u" title="Permanent link">&para;</a></h3>
@@ -8404,7 +9603,7 @@
 <li><strong>作用</strong>：强制输入输出流使用非缓冲模式，主要用于实时日志输出。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>python<span class="w"> </span>-u<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>python<span class="w"> </span>-u<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将以非缓冲模式运行 <code>script.py</code>。</p>
 <h3 id="12-i">12. <code>-i</code><a class="headerlink" href="#12-i" title="Permanent link">&para;</a></h3>
@@ -8412,7 +9611,7 @@
 <li><strong>作用</strong>：在脚本执行完毕后，进入交互式解释器。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>python<span class="w"> </span>-i<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>python<span class="w"> </span>-i<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将运行 <code>script.py</code>，执行完毕后进入 Python 交互模式。</p>
 <h3 id="13-t">13. <code>-t</code><a class="headerlink" href="#13-t" title="Permanent link">&para;</a></h3>
@@ -8420,7 +9619,7 @@
 <li><strong>作用</strong>：发出关于缩进混用的警告，使用两次 <code>-t</code> 则会将这些警告作为错误处理。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>python<span class="w"> </span>-t<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>python<span class="w"> </span>-t<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>如果代码中有混合使用空格和制表符的情况，将会发出警告。</p>
 <h3 id="14-x">14. <code>-x</code><a class="headerlink" href="#14-x" title="Permanent link">&para;</a></h3>
@@ -8428,7 +9627,7 @@
 <li><strong>作用</strong>：跳过脚本文件的第一行（用于处理包含 Unix shebang 的脚本）。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>python<span class="w"> </span>-x<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>python<span class="w"> </span>-x<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将跳过 <code>script.py</code> 的第一行并继续执行。</p>
 <h3 id="15-help-h">15. <code>--help</code> 或 <code>-h</code><a class="headerlink" href="#15-help-h" title="Permanent link">&para;</a></h3>
@@ -8436,7 +9635,7 @@
 <li><strong>作用</strong>：显示 Python 命令行选项的帮助信息并退出。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>python<span class="w"> </span>--help
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>python<span class="w"> </span>--help
 </span></code></pre></div>
 <p>这将列出所有 Python 命令行选项及其简要说明。</p>
 <h3 id="16-w">16. <code>-W</code><a class="headerlink" href="#16-w" title="Permanent link">&para;</a></h3>
@@ -8444,7 +9643,7 @@
 <li><strong>作用</strong>：控制警告的显示，可以设置忽略、默认、错误、一次性、总是等不同级别。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>python<span class="w"> </span>-W<span class="w"> </span>ignore<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>python<span class="w"> </span>-W<span class="w"> </span>ignore<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将运行 <code>script.py</code> 并忽略所有警告。</p>
 <h3 id="17-r">17. <code>-R</code><a class="headerlink" href="#17-r" title="Permanent link">&para;</a></h3>
@@ -8452,7 +9651,7 @@
 <li><strong>作用</strong>：启用哈希随机化功能，用于安全目的，防止特定类型的攻击。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>python<span class="w"> </span>-R<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>python<span class="w"> </span>-R<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将启用哈希随机化并运行 <code>script.py</code>。</p>
 <h3 id="18-q">18. <code>-Q</code><a class="headerlink" href="#18-q" title="Permanent link">&para;</a></h3>
@@ -8460,7 +9659,7 @@
 <li><strong>作用</strong>：控制 <code>/</code> 运算符的整数除法行为。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>python<span class="w"> </span>-Qnew<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>python<span class="w"> </span>-Qnew<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>强制 <code>/</code> 使用真正的除法，即使是在 Python 2.x 中。</p>
 <h3 id="19-x">19. <code>-X</code><a class="headerlink" href="#19-x" title="Permanent link">&para;</a></h3>
@@ -8468,139 +9667,139 @@
 <li><strong>作用</strong>：设置特定的实现选项，如 <code>-X faulthandler</code> 用于启用故障处理程序。</li>
 <li><strong>示例</strong>：</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>python<span class="w"> </span>-X<span class="w"> </span>faulthandler<span class="w"> </span>script.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>python<span class="w"> </span>-X<span class="w"> </span>faulthandler<span class="w"> </span>script.py
 </span></code></pre></div>
 <p>这将启用故障处理程序并运行 <code>script.py</code>。</p>
-<h3 id="_15">总结<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h3 id="_28">总结<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <p>通过这些命令行选项，你可以更灵活地控制 Python 解释器的行为，从而适应不同的开发和调试场景。熟悉这些选项可以帮助你更高效地编写、调试和运行 Python 代码。</p>
 <h2 id="python_2">python 自定义包<a class="headerlink" href="#python_2" title="Permanent link">&para;</a></h2>
 <p>以下是一个关于如何创建并发布 Python 自定义包的详细示例。</p>
 <h3 id="1_4">1. <strong>准备项目结构</strong><a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
 <p>假设我们创建一个名为 <code>simplemath</code> 的 Python 包，提供一些简单的数学运算功能。项目的目录结构如下：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>simplemath/
-</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>│
-</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>├──<span class="w"> </span>simplemath/
-</span><span id="__span-71-4"><a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
-</span><span id="__span-71-5"><a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a>│<span class="w">   </span>├──<span class="w"> </span>addition.py
-</span><span id="__span-71-6"><a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a>│<span class="w">   </span>└──<span class="w"> </span>subtraction.py
-</span><span id="__span-71-7"><a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a>│
-</span><span id="__span-71-8"><a id="__codelineno-71-8" name="__codelineno-71-8" href="#__codelineno-71-8"></a>├──<span class="w"> </span>tests/
-</span><span id="__span-71-9"><a id="__codelineno-71-9" name="__codelineno-71-9" href="#__codelineno-71-9"></a>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
-</span><span id="__span-71-10"><a id="__codelineno-71-10" name="__codelineno-71-10" href="#__codelineno-71-10"></a>│<span class="w">   </span>└──<span class="w"> </span>test_operations.py
-</span><span id="__span-71-11"><a id="__codelineno-71-11" name="__codelineno-71-11" href="#__codelineno-71-11"></a>│
-</span><span id="__span-71-12"><a id="__codelineno-71-12" name="__codelineno-71-12" href="#__codelineno-71-12"></a>├──<span class="w"> </span>LICENSE
-</span><span id="__span-71-13"><a id="__codelineno-71-13" name="__codelineno-71-13" href="#__codelineno-71-13"></a>├──<span class="w"> </span>README.md
-</span><span id="__span-71-14"><a id="__codelineno-71-14" name="__codelineno-71-14" href="#__codelineno-71-14"></a>└──<span class="w"> </span>setup.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>simplemath/
+</span><span id="__span-79-2"><a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>│
+</span><span id="__span-79-3"><a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>├──<span class="w"> </span>simplemath/
+</span><span id="__span-79-4"><a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+</span><span id="__span-79-5"><a id="__codelineno-79-5" name="__codelineno-79-5" href="#__codelineno-79-5"></a>│<span class="w">   </span>├──<span class="w"> </span>addition.py
+</span><span id="__span-79-6"><a id="__codelineno-79-6" name="__codelineno-79-6" href="#__codelineno-79-6"></a>│<span class="w">   </span>└──<span class="w"> </span>subtraction.py
+</span><span id="__span-79-7"><a id="__codelineno-79-7" name="__codelineno-79-7" href="#__codelineno-79-7"></a>│
+</span><span id="__span-79-8"><a id="__codelineno-79-8" name="__codelineno-79-8" href="#__codelineno-79-8"></a>├──<span class="w"> </span>tests/
+</span><span id="__span-79-9"><a id="__codelineno-79-9" name="__codelineno-79-9" href="#__codelineno-79-9"></a>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+</span><span id="__span-79-10"><a id="__codelineno-79-10" name="__codelineno-79-10" href="#__codelineno-79-10"></a>│<span class="w">   </span>└──<span class="w"> </span>test_operations.py
+</span><span id="__span-79-11"><a id="__codelineno-79-11" name="__codelineno-79-11" href="#__codelineno-79-11"></a>│
+</span><span id="__span-79-12"><a id="__codelineno-79-12" name="__codelineno-79-12" href="#__codelineno-79-12"></a>├──<span class="w"> </span>LICENSE
+</span><span id="__span-79-13"><a id="__codelineno-79-13" name="__codelineno-79-13" href="#__codelineno-79-13"></a>├──<span class="w"> </span>README.md
+</span><span id="__span-79-14"><a id="__codelineno-79-14" name="__codelineno-79-14" href="#__codelineno-79-14"></a>└──<span class="w"> </span>setup.py
 </span></code></pre></div>
 <h3 id="2_4">2. <strong>编写代码</strong><a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
 <p>在 <code>simplemath/simplemath/</code> 目录下，我们分别创建 <code>addition.py</code> 和 <code>subtraction.py</code>，用于实现加法和减法功能。</p>
 <h4 id="additionpy"><code>addition.py</code><a class="headerlink" href="#additionpy" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </span></code></pre></div>
 <h4 id="subtractionpy"><code>subtraction.py</code><a class="headerlink" href="#subtractionpy" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 </span></code></pre></div>
 <p>在 <code>__init__.py</code> 中，导入这些模块，以便包的用户可以直接使用它们：</p>
 <h4 id="__init__py"><code>__init__.py</code><a class="headerlink" href="#__init__py" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="kn">from</span> <span class="nn">.addition</span> <span class="kn">import</span> <span class="n">add</span>
-</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a><span class="kn">from</span> <span class="nn">.subtraction</span> <span class="kn">import</span> <span class="n">subtract</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="kn">from</span> <span class="nn">.addition</span> <span class="kn">import</span> <span class="n">add</span>
+</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="kn">from</span> <span class="nn">.subtraction</span> <span class="kn">import</span> <span class="n">subtract</span>
 </span></code></pre></div>
 <h3 id="3_6">3. <strong>编写测试</strong><a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
 <p>在 <code>tests/</code> 目录下，编写测试代码，确保我们的功能正常运行。</p>
 <h4 id="test_operationspy"><code>test_operations.py</code><a class="headerlink" href="#test_operationspy" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="kn">import</span> <span class="nn">unittest</span>
-</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a><span class="kn">from</span> <span class="nn">simplemath</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">subtract</span>
-</span><span id="__span-75-3"><a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>
-</span><span id="__span-75-4"><a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a><span class="k">class</span> <span class="nc">TestSimpleMath</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-</span><span id="__span-75-5"><a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>    <span class="k">def</span> <span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-75-6"><a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
-</span><span id="__span-75-7"><a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>
-</span><span id="__span-75-8"><a id="__codelineno-75-8" name="__codelineno-75-8" href="#__codelineno-75-8"></a>    <span class="k">def</span> <span class="nf">test_subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-75-9"><a id="__codelineno-75-9" name="__codelineno-75-9" href="#__codelineno-75-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-75-10"><a id="__codelineno-75-10" name="__codelineno-75-10" href="#__codelineno-75-10"></a>
-</span><span id="__span-75-11"><a id="__codelineno-75-11" name="__codelineno-75-11" href="#__codelineno-75-11"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span><span id="__span-75-12"><a id="__codelineno-75-12" name="__codelineno-75-12" href="#__codelineno-75-12"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="kn">import</span> <span class="nn">unittest</span>
+</span><span id="__span-83-2"><a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a><span class="kn">from</span> <span class="nn">simplemath</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">subtract</span>
+</span><span id="__span-83-3"><a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a>
+</span><span id="__span-83-4"><a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a><span class="k">class</span> <span class="nc">TestSimpleMath</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span id="__span-83-5"><a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a>    <span class="k">def</span> <span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-83-6"><a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+</span><span id="__span-83-7"><a id="__codelineno-83-7" name="__codelineno-83-7" href="#__codelineno-83-7"></a>
+</span><span id="__span-83-8"><a id="__codelineno-83-8" name="__codelineno-83-8" href="#__codelineno-83-8"></a>    <span class="k">def</span> <span class="nf">test_subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-83-9"><a id="__codelineno-83-9" name="__codelineno-83-9" href="#__codelineno-83-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-83-10"><a id="__codelineno-83-10" name="__codelineno-83-10" href="#__codelineno-83-10"></a>
+</span><span id="__span-83-11"><a id="__codelineno-83-11" name="__codelineno-83-11" href="#__codelineno-83-11"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span><span id="__span-83-12"><a id="__codelineno-83-12" name="__codelineno-83-12" href="#__codelineno-83-12"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
 <h3 id="4-setuppy">4. <strong>编写 <code>setup.py</code> 文件</strong><a class="headerlink" href="#4-setuppy" title="Permanent link">&para;</a></h3>
 <p>在项目根目录下创建 <code>setup.py</code> 文件，配置包的元数据。</p>
 <h4 id="setuppy"><code>setup.py</code><a class="headerlink" href="#setuppy" title="Permanent link">&para;</a></h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
-</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>
-</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="n">setup</span><span class="p">(</span>
-</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;simplemath&quot;</span><span class="p">,</span>
-</span><span id="__span-76-5"><a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-</span><span id="__span-76-6"><a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a>    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
-</span><span id="__span-76-7"><a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a>    <span class="n">author_email</span><span class="o">=</span><span class="s2">&quot;your.email@example.com&quot;</span><span class="p">,</span>
-</span><span id="__span-76-8"><a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A simple math operations package&quot;</span><span class="p">,</span>
-</span><span id="__span-76-9"><a id="__codelineno-76-9" name="__codelineno-76-9" href="#__codelineno-76-9"></a>    <span class="n">long_description</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;README.md&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-</span><span id="__span-76-10"><a id="__codelineno-76-10" name="__codelineno-76-10" href="#__codelineno-76-10"></a>    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">&quot;text/markdown&quot;</span><span class="p">,</span>
-</span><span id="__span-76-11"><a id="__codelineno-76-11" name="__codelineno-76-11" href="#__codelineno-76-11"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://github.com/yourusername/simplemath&quot;</span><span class="p">,</span>
-</span><span id="__span-76-12"><a id="__codelineno-76-12" name="__codelineno-76-12" href="#__codelineno-76-12"></a>    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
-</span><span id="__span-76-13"><a id="__codelineno-76-13" name="__codelineno-76-13" href="#__codelineno-76-13"></a>    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
-</span><span id="__span-76-14"><a id="__codelineno-76-14" name="__codelineno-76-14" href="#__codelineno-76-14"></a>        <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
-</span><span id="__span-76-15"><a id="__codelineno-76-15" name="__codelineno-76-15" href="#__codelineno-76-15"></a>        <span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
-</span><span id="__span-76-16"><a id="__codelineno-76-16" name="__codelineno-76-16" href="#__codelineno-76-16"></a>        <span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
-</span><span id="__span-76-17"><a id="__codelineno-76-17" name="__codelineno-76-17" href="#__codelineno-76-17"></a>    <span class="p">],</span>
-</span><span id="__span-76-18"><a id="__codelineno-76-18" name="__codelineno-76-18" href="#__codelineno-76-18"></a>    <span class="n">python_requires</span><span class="o">=</span><span class="s1">&#39;&gt;=3.6&#39;</span><span class="p">,</span>
-</span><span id="__span-76-19"><a id="__codelineno-76-19" name="__codelineno-76-19" href="#__codelineno-76-19"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
+</span><span id="__span-84-2"><a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a>
+</span><span id="__span-84-3"><a id="__codelineno-84-3" name="__codelineno-84-3" href="#__codelineno-84-3"></a><span class="n">setup</span><span class="p">(</span>
+</span><span id="__span-84-4"><a id="__codelineno-84-4" name="__codelineno-84-4" href="#__codelineno-84-4"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;simplemath&quot;</span><span class="p">,</span>
+</span><span id="__span-84-5"><a id="__codelineno-84-5" name="__codelineno-84-5" href="#__codelineno-84-5"></a>    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+</span><span id="__span-84-6"><a id="__codelineno-84-6" name="__codelineno-84-6" href="#__codelineno-84-6"></a>    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
+</span><span id="__span-84-7"><a id="__codelineno-84-7" name="__codelineno-84-7" href="#__codelineno-84-7"></a>    <span class="n">author_email</span><span class="o">=</span><span class="s2">&quot;your.email@example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-84-8"><a id="__codelineno-84-8" name="__codelineno-84-8" href="#__codelineno-84-8"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A simple math operations package&quot;</span><span class="p">,</span>
+</span><span id="__span-84-9"><a id="__codelineno-84-9" name="__codelineno-84-9" href="#__codelineno-84-9"></a>    <span class="n">long_description</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;README.md&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+</span><span id="__span-84-10"><a id="__codelineno-84-10" name="__codelineno-84-10" href="#__codelineno-84-10"></a>    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">&quot;text/markdown&quot;</span><span class="p">,</span>
+</span><span id="__span-84-11"><a id="__codelineno-84-11" name="__codelineno-84-11" href="#__codelineno-84-11"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://github.com/yourusername/simplemath&quot;</span><span class="p">,</span>
+</span><span id="__span-84-12"><a id="__codelineno-84-12" name="__codelineno-84-12" href="#__codelineno-84-12"></a>    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
+</span><span id="__span-84-13"><a id="__codelineno-84-13" name="__codelineno-84-13" href="#__codelineno-84-13"></a>    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+</span><span id="__span-84-14"><a id="__codelineno-84-14" name="__codelineno-84-14" href="#__codelineno-84-14"></a>        <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
+</span><span id="__span-84-15"><a id="__codelineno-84-15" name="__codelineno-84-15" href="#__codelineno-84-15"></a>        <span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+</span><span id="__span-84-16"><a id="__codelineno-84-16" name="__codelineno-84-16" href="#__codelineno-84-16"></a>        <span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
+</span><span id="__span-84-17"><a id="__codelineno-84-17" name="__codelineno-84-17" href="#__codelineno-84-17"></a>    <span class="p">],</span>
+</span><span id="__span-84-18"><a id="__codelineno-84-18" name="__codelineno-84-18" href="#__codelineno-84-18"></a>    <span class="n">python_requires</span><span class="o">=</span><span class="s1">&#39;&gt;=3.6&#39;</span><span class="p">,</span>
+</span><span id="__span-84-19"><a id="__codelineno-84-19" name="__codelineno-84-19" href="#__codelineno-84-19"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="5-readmemd">5. <strong>编写 <code>README.md</code> 文件</strong><a class="headerlink" href="#5-readmemd" title="Permanent link">&para;</a></h3>
 <p>在 <code>README.md</code> 文件中介绍包的功能和用法。</p>
 <h4 id="readmemd"><code>README.md</code><a class="headerlink" href="#readmemd" title="Permanent link">&para;</a></h4>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="gh"># SimpleMath</span>
-</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>
-</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>SimpleMath is a Python package that provides basic math operations like addition and subtraction.
-</span><span id="__span-77-4"><a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>
-</span><span id="__span-77-5"><a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a><span class="gu">## Installation</span>
-</span><span id="__span-77-6"><a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>
-</span><span id="__span-77-7"><a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>You can install this package via pip:
-</span><span id="__span-77-8"><a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>
-</span><span id="__span-77-9"><a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a>```bash
-</span><span id="__span-77-10"><a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a>pip install simplemath
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="gh"># SimpleMath</span>
+</span><span id="__span-85-2"><a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>
+</span><span id="__span-85-3"><a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a>SimpleMath is a Python package that provides basic math operations like addition and subtraction.
+</span><span id="__span-85-4"><a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a>
+</span><span id="__span-85-5"><a id="__codelineno-85-5" name="__codelineno-85-5" href="#__codelineno-85-5"></a><span class="gu">## Installation</span>
+</span><span id="__span-85-6"><a id="__codelineno-85-6" name="__codelineno-85-6" href="#__codelineno-85-6"></a>
+</span><span id="__span-85-7"><a id="__codelineno-85-7" name="__codelineno-85-7" href="#__codelineno-85-7"></a>You can install this package via pip:
+</span><span id="__span-85-8"><a id="__codelineno-85-8" name="__codelineno-85-8" href="#__codelineno-85-8"></a>
+</span><span id="__span-85-9"><a id="__codelineno-85-9" name="__codelineno-85-9" href="#__codelineno-85-9"></a>```bash
+</span><span id="__span-85-10"><a id="__codelineno-85-10" name="__codelineno-85-10" href="#__codelineno-85-10"></a>pip install simplemath
 </span></code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="kn">from</span> <span class="nn">simplemath</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">subtract</span>
-</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a>
-</span><span id="__span-78-3"><a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>        <span class="c1"># Output: 7</span>
-</span><span id="__span-78-4"><a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 5</span>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="kn">from</span> <span class="nn">simplemath</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">subtract</span>
+</span><span id="__span-86-2"><a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a>
+</span><span id="__span-86-3"><a id="__codelineno-86-3" name="__codelineno-86-3" href="#__codelineno-86-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>        <span class="c1"># Output: 7</span>
+</span><span id="__span-86-4"><a id="__codelineno-86-4" name="__codelineno-86-4" href="#__codelineno-86-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 5</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>### 6. **编写 LICENSE 文件**
-</span><span id="__span-79-2"><a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>选择一个开源许可证，比如 MIT License，并将其内容放入 `LICENSE` 文件中。
-</span><span id="__span-79-3"><a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>
-</span><span id="__span-79-4"><a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a>#### `LICENSE`
-</span><span id="__span-79-5"><a id="__codelineno-79-5" name="__codelineno-79-5" href="#__codelineno-79-5"></a>```text
-</span><span id="__span-79-6"><a id="__codelineno-79-6" name="__codelineno-79-6" href="#__codelineno-79-6"></a>MIT License
-</span><span id="__span-79-7"><a id="__codelineno-79-7" name="__codelineno-79-7" href="#__codelineno-79-7"></a>
-</span><span id="__span-79-8"><a id="__codelineno-79-8" name="__codelineno-79-8" href="#__codelineno-79-8"></a>Copyright (c) 2024 Your Name
-</span><span id="__span-79-9"><a id="__codelineno-79-9" name="__codelineno-79-9" href="#__codelineno-79-9"></a>
-</span><span id="__span-79-10"><a id="__codelineno-79-10" name="__codelineno-79-10" href="#__codelineno-79-10"></a>Permission is hereby granted, free of charge, to any person obtaining a copy
-</span><span id="__span-79-11"><a id="__codelineno-79-11" name="__codelineno-79-11" href="#__codelineno-79-11"></a>...
+<div class="language-text highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>### 6. **编写 LICENSE 文件**
+</span><span id="__span-87-2"><a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>选择一个开源许可证，比如 MIT License，并将其内容放入 `LICENSE` 文件中。
+</span><span id="__span-87-3"><a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>
+</span><span id="__span-87-4"><a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>#### `LICENSE`
+</span><span id="__span-87-5"><a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a>```text
+</span><span id="__span-87-6"><a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a>MIT License
+</span><span id="__span-87-7"><a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a>
+</span><span id="__span-87-8"><a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a>Copyright (c) 2024 Your Name
+</span><span id="__span-87-9"><a id="__codelineno-87-9" name="__codelineno-87-9" href="#__codelineno-87-9"></a>
+</span><span id="__span-87-10"><a id="__codelineno-87-10" name="__codelineno-87-10" href="#__codelineno-87-10"></a>Permission is hereby granted, free of charge, to any person obtaining a copy
+</span><span id="__span-87-11"><a id="__codelineno-87-11" name="__codelineno-87-11" href="#__codelineno-87-11"></a>...
 </span></code></pre></div></p>
 <h3 id="7_1">7. <strong>打包和发布</strong><a class="headerlink" href="#7_1" title="Permanent link">&para;</a></h3>
 <p>在打包之前，确保 <code>setuptools</code> 和 <code>wheel</code> 已安装：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>pip<span class="w"> </span>install<span class="w"> </span>setuptools<span class="w"> </span>wheel
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>pip<span class="w"> </span>install<span class="w"> </span>setuptools<span class="w"> </span>wheel
 </span></code></pre></div>
 <p>在项目根目录下运行以下命令打包：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
 </span></code></pre></div>
 <p>这将在 <code>dist/</code> 目录中生成 <code>.tar.gz</code> 和 <code>.whl</code> 文件。</p>
 <h3 id="8-pypi">8. <strong>上传到 PyPI</strong><a class="headerlink" href="#8-pypi" title="Permanent link">&para;</a></h3>
 <p>使用 <code>twine</code> 上传包到 PyPI：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>pip<span class="w"> </span>install<span class="w"> </span>twine
-</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>pip<span class="w"> </span>install<span class="w"> </span>twine
+</span><span id="__span-90-2"><a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </span></code></pre></div>
 <p>上传成功后，其他用户就可以通过 <code>pip install simplemath</code> 来安装并使用你的包了。</p>
 <h3 id="9">9. <strong>验证安装</strong><a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
 <p>可以在虚拟环境中验证包的安装：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>pip<span class="w"> </span>install<span class="w"> </span>simplemath
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>pip<span class="w"> </span>install<span class="w"> </span>simplemath
 </span></code></pre></div>
 <p>然后测试包的功能：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="kn">from</span> <span class="nn">simplemath</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">subtract</span>
-</span><span id="__span-84-2"><a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a>
-</span><span id="__span-84-3"><a id="__codelineno-84-3" name="__codelineno-84-3" href="#__codelineno-84-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>        <span class="c1"># Output: 7</span>
-</span><span id="__span-84-4"><a id="__codelineno-84-4" name="__codelineno-84-4" href="#__codelineno-84-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 5</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a><span class="kn">from</span> <span class="nn">simplemath</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">subtract</span>
+</span><span id="__span-92-2"><a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a>
+</span><span id="__span-92-3"><a id="__codelineno-92-3" name="__codelineno-92-3" href="#__codelineno-92-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>        <span class="c1"># Output: 7</span>
+</span><span id="__span-92-4"><a id="__codelineno-92-4" name="__codelineno-92-4" href="#__codelineno-92-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 5</span>
 </span></code></pre></div>
 <h3 id="10">10. <strong>更新包</strong><a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
 <p>如果需要更新包，修改代码后更新 <code>setup.py</code> 中的版本号，然后重新打包并上传即可。</p>
@@ -8651,13 +9850,13 @@
         
         
           
-          <a href="../websocket/" class="md-footer__link md-footer__link--next" aria-label="下一页: websocket">
+          <a href="../datastruct/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数据结构和算法">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                websocket
+                数据结构和算法
               </div>
             </div>
             <div class="md-footer__button md-icon">
